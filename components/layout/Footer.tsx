@@ -52,33 +52,39 @@ export function Footer() {
               Argentina 🇦🇷
             </p>
             <div className="flex items-center gap-3">
-              <a
-                href={CONTACT.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon size={16} />
-              </a>
-              <a
-                href={CONTACT.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-                aria-label="Instagram"
-              >
-                <InstagramIcon size={16} />
-              </a>
-              <a
-                href={CONTACT.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-                aria-label="GitHub"
-              >
-                <GithubIcon size={16} />
-              </a>
+              {CONTACT.linkedin && (
+                <a
+                  href={CONTACT.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon size={16} />
+                </a>
+              )}
+              {CONTACT.instagram && (
+                <a
+                  href={CONTACT.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={16} />
+                </a>
+              )}
+              {CONTACT.github && (
+                <a
+                  href={CONTACT.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon size={16} />
+                </a>
+              )}
               <a
                 href={`mailto:${CONTACT.email}`}
                 className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"

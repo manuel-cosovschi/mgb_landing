@@ -5,14 +5,14 @@
 
 // ── Contact info ──────────────────────────────
 export const CONTACT = {
-  email: "contacto@mgbsoftware.com",
-  whatsapp: "+54XXXXXXXXXX", // [PLACEHOLDER — reemplazar con número real]
+  email: "mgbsoftwarefactory@gmail.com",
+  whatsapp: "+542235383082",
   whatsappMessage: "Hola, vi su página web y me interesa consultar sobre sus servicios",
-  linkedin: "https://linkedin.com/company/mgb-software", // [PLACEHOLDER]
-  instagram: "https://instagram.com/mgb.software", // [PLACEHOLDER — confirmar si existe]
-  github: "https://github.com/mgb-software", // [PLACEHOLDER]
-  calendly: "https://calendly.com/mgbsoftware", // [PLACEHOLDER]
-  formspreeId: "YOUR_FORMSPREE_ID", // [PLACEHOLDER — reemplazar con ID real]
+  linkedin: "", // [PLACEHOLDER — completar cuando creen la página de empresa en LinkedIn]
+  instagram: "", // [PLACEHOLDER — completar cuando creen la cuenta de Instagram]
+  github: "", // [PLACEHOLDER — completar cuando creen el org de GitHub]
+  calendly: "https://calendly.com/mgbsoftwarefactory/new-meeting",
+  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "YOUR_FORMSPREE_ID", // Configurar en Vercel como variable de entorno
   location: "Argentina 🇦🇷",
   hours: "Lunes a viernes, 9 a 19hs (Argentina)",
 } as const;
@@ -227,28 +227,28 @@ export const TEAM = [
     role: "CEO & Fullstack Developer",
     bio: "Combina desarrollo técnico con visión de negocio. Especialista en automatizaciones, bots con IA y backend. También es personal trainer, así que entiende lo que es resolver problemas reales para emprendedores.",
     initials: "MC",
-    linkedin: "https://linkedin.com/in/manuel-cosovschi", // [PLACEHOLDER — reemplazar]
-    github: "https://github.com/manuel-cosovschi", // [PLACEHOLDER — reemplazar]
+    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn personal]
+    github: "https://github.com/manuel-cosovschi",
     accentColor: "#E94560",
   },
   {
     id: "gabriel",
     name: "Gabriel García Vázquez",
     role: "CTO & Frontend Lead",
-    bio: "[PLACEHOLDER — Bio de Gabriel pendiente. Necesito: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
+    bio: "[PLACEHOLDER — Bio de Gabriel pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
     initials: "GG",
-    linkedin: "https://linkedin.com/in/gabriel-garcia-vazquez", // [PLACEHOLDER]
-    github: "https://github.com/gabriel-garcia-vazquez", // [PLACEHOLDER]
+    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn de Gabriel]
+    github: "", // [PLACEHOLDER — agregar GitHub de Gabriel]
     accentColor: "#8BE9FD",
   },
   {
     id: "bruno",
     name: "Bruno Nicolás Romano",
     role: "COO & Backend Lead",
-    bio: "[PLACEHOLDER — Bio de Bruno pendiente. Necesito: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
+    bio: "[PLACEHOLDER — Bio de Bruno pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
     initials: "BR",
-    linkedin: "https://linkedin.com/in/bruno-romano", // [PLACEHOLDER]
-    github: "https://github.com/bruno-romano", // [PLACEHOLDER]
+    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn de Bruno]
+    github: "", // [PLACEHOLDER — agregar GitHub de Bruno]
     accentColor: "#BD93F9",
   },
 ] as const;

@@ -114,26 +114,32 @@ function TeamCard({ member }: TeamCardProps) {
       <p className="text-[#7A7A95] text-sm leading-relaxed mb-6">{member.bio}</p>
 
       {/* Social links */}
-      <div className="flex items-center gap-3 mt-auto">
-        <a
-          href={member.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-          aria-label={`LinkedIn de ${member.name}`}
-        >
-          <LinkedinIcon size={16} />
-        </a>
-        <a
-          href={member.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-          aria-label={`GitHub de ${member.name}`}
-        >
-          <GithubIcon size={16} />
-        </a>
-      </div>
+      {(member.linkedin || member.github) && (
+        <div className="flex items-center gap-3 mt-auto">
+          {member.linkedin && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
+              aria-label={`LinkedIn de ${member.name}`}
+            >
+              <LinkedinIcon size={16} />
+            </a>
+          )}
+          {member.github && (
+            <a
+              href={member.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[#4A4A65] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
+              aria-label={`GitHub de ${member.name}`}
+            >
+              <GithubIcon size={16} />
+            </a>
+          )}
+        </div>
+      )}
     </motion.div>
   );
 }

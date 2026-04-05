@@ -347,41 +347,47 @@ export function Contact() {
                 <span>WhatsApp: {CONTACT.whatsapp}</span>
               </a>
 
-              <a
-                href={CONTACT.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[rgba(139,233,253,0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(139,233,253,0.15)] transition-colors">
-                  <LinkedinIcon size={14} className="text-[#8BE9FD]" />
-                </div>
-                <span>LinkedIn</span>
-              </a>
+              {CONTACT.linkedin && (
+                <a
+                  href={CONTACT.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(139,233,253,0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(139,233,253,0.15)] transition-colors">
+                    <LinkedinIcon size={14} className="text-[#8BE9FD]" />
+                  </div>
+                  <span>LinkedIn</span>
+                </a>
+              )}
 
-              <a
-                href={CONTACT.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[rgba(189,147,249,0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(189,147,249,0.15)] transition-colors">
-                  <InstagramIcon size={14} className="text-[#BD93F9]" />
-                </div>
-                <span>Instagram: @mgb.software</span>
-              </a>
+              {CONTACT.instagram && (
+                <a
+                  href={CONTACT.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(189,147,249,0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(189,147,249,0.15)] transition-colors">
+                    <InstagramIcon size={14} className="text-[#BD93F9]" />
+                  </div>
+                  <span>Instagram</span>
+                </a>
+              )}
 
-              <a
-                href={CONTACT.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.05)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(255,255,255,0.08)] transition-colors">
-                  <GithubIcon size={14} className="text-[#EEEEF2]" />
-                </div>
-                <span>GitHub</span>
-              </a>
+              {CONTACT.github && (
+                <a
+                  href={CONTACT.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.05)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(255,255,255,0.08)] transition-colors">
+                    <GithubIcon size={14} className="text-[#EEEEF2]" />
+                  </div>
+                  <span>GitHub</span>
+                </a>
+              )}
 
               <div className="flex items-center gap-3 text-sm text-[#4A4A65]">
                 <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.03)] flex items-center justify-center shrink-0">
@@ -412,9 +418,6 @@ export function Contact() {
                 <Calendar size={16} className="text-[#BD93F9]" />
                 Agendar reunión
               </a>
-              <p className="text-xs text-[#4A4A65] text-center mt-2">
-                [PLACEHOLDER — configurar link de Calendly]
-              </p>
             </div>
           </motion.div>
         </div>
