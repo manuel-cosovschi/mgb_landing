@@ -12,7 +12,7 @@ export const CONTACT = {
   instagram: "", // [PLACEHOLDER — completar cuando creen la cuenta de Instagram]
   github: "", // [PLACEHOLDER — completar cuando creen el org de GitHub]
   calendly: "https://calendly.com/mgbsoftwarefactory/new-meeting",
-  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "YOUR_FORMSPREE_ID", // Configurar en Vercel como variable de entorno
+  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xkopknkd",
   location: "Argentina 🇦🇷",
   hours: "Lunes a viernes, 9 a 19hs (Argentina)",
 } as const;

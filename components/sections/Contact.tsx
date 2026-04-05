@@ -106,10 +106,7 @@ export function Contact() {
   const onSubmit = async (data: ContactFormData) => {
     setSubmitError(null);
     try {
-      const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-      const endpoint = formId
-        ? `https://formspree.io/f/${formId}`
-        : `https://formspree.io/f/YOUR_FORM_ID`; // [PLACEHOLDER]
+      const endpoint = `https://formspree.io/f/${CONTACT.formspreeId}`;
 
       const res = await fetch(endpoint, {
         method: "POST",
