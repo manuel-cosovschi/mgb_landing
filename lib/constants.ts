@@ -10,7 +10,7 @@ export const CONTACT = {
   whatsappMessage: "Hola, vi su página web y me interesa consultar sobre sus servicios",
   linkedin: "", // [PLACEHOLDER — completar cuando creen la página de empresa en LinkedIn]
   instagram: "", // [PLACEHOLDER — completar cuando creen la cuenta de Instagram]
-  github: "", // [PLACEHOLDER — completar cuando creen el org de GitHub]
+  github: "https://github.com/mgbsoftwarefactory-web",
   calendly: "https://calendly.com/mgbsoftwarefactory/new-meeting",
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xkopknkd",
   location: "Argentina 🇦🇷",
@@ -220,14 +220,25 @@ export const PROCESS_STEPS = [
 ] as const;
 
 // ── Team ──────────────────────────────────────
-export const TEAM = [
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  initials: string;
+  linkedin: string;
+  github: string;
+  accentColor: string;
+}
+
+export const TEAM: TeamMember[] = [
   {
     id: "manuel",
     name: "Manuel Cosovschi",
     role: "CEO & Fullstack Developer",
     bio: "Combina desarrollo técnico con visión de negocio. Especialista en automatizaciones, bots con IA y backend. También es personal trainer, así que entiende lo que es resolver problemas reales para emprendedores.",
     initials: "MC",
-    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn personal]
+    linkedin: "https://www.linkedin.com/in/manuel-cosovschi-4b777923b",
     github: "https://github.com/manuel-cosovschi",
     accentColor: "#E94560",
   },
@@ -237,7 +248,7 @@ export const TEAM = [
     role: "CTO & Frontend Lead",
     bio: "[PLACEHOLDER — Bio de Gabriel pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
     initials: "GG",
-    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn de Gabriel]
+    linkedin: "https://www.linkedin.com/in/gabriel-garcia-vazquez-2005b2260",
     github: "", // [PLACEHOLDER — agregar GitHub de Gabriel]
     accentColor: "#8BE9FD",
   },
@@ -247,11 +258,11 @@ export const TEAM = [
     role: "COO & Backend Lead",
     bio: "[PLACEHOLDER — Bio de Bruno pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
     initials: "BR",
-    linkedin: "", // [PLACEHOLDER — agregar URL de LinkedIn de Bruno]
+    linkedin: "https://www.linkedin.com/in/brunoromano22",
     github: "", // [PLACEHOLDER — agregar GitHub de Bruno]
     accentColor: "#BD93F9",
   },
-] as const;
+];
 
 // ── Tech Stack ────────────────────────────────
 export const TECH_STACK_ROW1 = [
