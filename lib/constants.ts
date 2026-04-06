@@ -241,7 +241,7 @@ export const TEAM: TeamMember[] = [
     bio: "Mi rol en MGB es conectar la necesidad del cliente con la solución técnica. Me especializo en desarrollo fullstack, automatizaciones e inteligencia artificial aplicada a productos reales. Creo que el mejor software se construye cuando quien lo programa entiende el negocio detrás.",
     skills: ["Node.js", "Python", "Next.js", "n8n", "OpenAI API", "Swift"],
     initials: "MC",
-    photo: "/team/manuel.jpg", // ⬅ Guardar la foto en public/team/manuel.jpg
+    photo: "/manuel.jpeg",
     linkedin: "https://www.linkedin.com/in/manuel-cosovschi-4b777923b",
     github: "https://github.com/manuel-cosovschi",
     accentColor: "#E94560",
@@ -253,7 +253,7 @@ export const TEAM: TeamMember[] = [
     bio: "Mi rol en MGB es transformar ideas en interfaces que los usuarios realmente disfrutan usar. Me especializo en arquitectura frontend y desarrollo fullstack, construyendo soluciones eficientes y orientadas a resultados. Creo que el código más valioso es el que impacta directamente en el negocio del cliente.",
     skills: ["TypeScript", "Angular", "Node.js", "Java", "C++", "MySQL"],
     initials: "GG",
-    photo: "/team/gabriel.jpg", // ⬅ Guardar la foto en public/team/gabriel.jpg
+    photo: "/gabriel.jpeg",
     linkedin: "https://www.linkedin.com/in/gabriel-garcia-vazquez-2005b2260",
     github: "https://github.com/gabrielgarciavazquez57",
     accentColor: "#8BE9FD",
@@ -265,7 +265,7 @@ export const TEAM: TeamMember[] = [
     bio: "Mi rol en MGB es darle estructura y escalabilidad a cada proyecto. Me enfoco en construir bases sólidas a nivel de código y asegurar la calidad de cada entrega. Para mí, un buen producto nace de entender el problema a fondo y diseñar una arquitectura que lo resuelva de forma definitiva.",
     skills: ["Java", "Python", "PostgreSQL", "Docker", "AWS", "GitHub Actions"],
     initials: "BR",
-    photo: "/team/bruno.jpg", // ⬅ Guardar la foto en public/team/bruno.jpg
+    photo: "/bruno.jpeg",
     linkedin: "https://www.linkedin.com/in/brunoromano22",
     github: "https://github.com/romanobrunonicolas-netizen",
     accentColor: "#BD93F9",
