@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -57,6 +59,9 @@ interface TeamCardProps {
 }
 
 function TeamCard({ member }: TeamCardProps) {
+  const [imgError, setImgError] = useState(false);
+  const showPhoto = member.photo && !imgError;
+
   return (
     <motion.div
       className="group relative bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-7 flex flex-col items-center text-center overflow-hidden"
@@ -74,23 +79,42 @@ function TeamCard({ member }: TeamCardProps) {
         style={{ background: member.accentColor }}
       />
 
-      {/* Avatar */}
+      {/* Avatar — foto o iniciales */}
       <motion.div
-        className="relative w-20 h-20 rounded-full flex items-center justify-center text-xl font-bold font-heading mb-5 select-none"
+        className="relative w-24 h-24 rounded-full mb-5 overflow-hidden shrink-0"
         style={{
-          background: `${member.accentColor}18`,
           border: `2px solid ${member.accentColor}30`,
-          color: member.accentColor,
+          boxShadow: `0 0 0 0px ${member.accentColor}50`,
         }}
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: 1.06 }}
         transition={{ duration: 0.3 }}
       >
-        {member.initials}
-        {/* Avatar ring */}
+        {showPhoto ? (
+          <Image
+            src={member.photo}
+            alt={`Foto de ${member.name}`}
+            fill
+            className="object-cover object-top"
+            sizes="96px"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center text-xl font-bold font-heading"
+            style={{
+              background: `${member.accentColor}18`,
+              color: member.accentColor,
+            }}
+          >
+            {member.initials}
+          </div>
+        )}
+
+        {/* Hover ring */}
         <div
-          className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            boxShadow: `0 0 0 2px ${member.accentColor}50, 0 0 20px ${member.accentColor}20`,
+            boxShadow: `inset 0 0 0 2px ${member.accentColor}50`,
           }}
         />
       </motion.div>
@@ -111,7 +135,19 @@ function TeamCard({ member }: TeamCardProps) {
       </span>
 
       {/* Bio */}
-      <p className="text-[#7A7A95] text-sm leading-relaxed mb-6">{member.bio}</p>
+      <p className="text-[#7A7A95] text-sm leading-relaxed mb-5">{member.bio}</p>
+
+      {/* Skill tags */}
+      <div className="flex flex-wrap justify-center gap-1.5 mb-6">
+        {member.skills.map((skill) => (
+          <span
+            key={skill}
+            className="text-xs font-mono text-[#4A4A65] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] px-2 py-0.5 rounded"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
 
       {/* Social links */}
       {(member.linkedin || member.github) && (

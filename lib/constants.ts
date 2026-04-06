@@ -9,7 +9,7 @@ export const CONTACT = {
   whatsapp: "+542235383082",
   whatsappMessage: "Hola, vi su página web y me interesa consultar sobre sus servicios",
   linkedin: "", // [PLACEHOLDER — completar cuando creen la página de empresa en LinkedIn]
-  instagram: "", // [PLACEHOLDER — completar cuando creen la cuenta de Instagram]
+  instagram: "https://www.instagram.com/mgbsoftware_factory",
   github: "https://github.com/mgbsoftwarefactory-web",
   calendly: "https://calendly.com/mgbsoftwarefactory/new-meeting",
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xkopknkd",
@@ -225,7 +225,9 @@ interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  skills: string[];
   initials: string;
+  photo: string; // path relativo a /public, ej: "/team/manuel.jpg" — vacío = muestra iniciales
   linkedin: string;
   github: string;
   accentColor: string;
@@ -236,8 +238,10 @@ export const TEAM: TeamMember[] = [
     id: "manuel",
     name: "Manuel Cosovschi",
     role: "CEO & Fullstack Developer",
-    bio: "Combina desarrollo técnico con visión de negocio. Especialista en automatizaciones, bots con IA y backend. También es personal trainer, así que entiende lo que es resolver problemas reales para emprendedores.",
+    bio: "Mi rol en MGB es conectar la necesidad del cliente con la solución técnica. Me especializo en desarrollo fullstack, automatizaciones e inteligencia artificial aplicada a productos reales. Creo que el mejor software se construye cuando quien lo programa entiende el negocio detrás.",
+    skills: ["Node.js", "Python", "Next.js", "n8n", "OpenAI API", "Swift"],
     initials: "MC",
+    photo: "/team/manuel.jpg", // ⬅ Guardar la foto en public/team/manuel.jpg
     linkedin: "https://www.linkedin.com/in/manuel-cosovschi-4b777923b",
     github: "https://github.com/manuel-cosovschi",
     accentColor: "#E94560",
@@ -246,20 +250,24 @@ export const TEAM: TeamMember[] = [
     id: "gabriel",
     name: "Gabriel García Vázquez",
     role: "CTO & Frontend Lead",
-    bio: "[PLACEHOLDER — Bio de Gabriel pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
+    bio: "Mi rol en MGB es transformar ideas en interfaces que los usuarios realmente disfrutan usar. Me especializo en arquitectura frontend y desarrollo fullstack, construyendo soluciones eficientes y orientadas a resultados. Creo que el código más valioso es el que impacta directamente en el negocio del cliente.",
+    skills: ["TypeScript", "Angular", "Node.js", "Java", "C++", "MySQL"],
     initials: "GG",
+    photo: "/team/gabriel.jpg", // ⬅ Guardar la foto en public/team/gabriel.jpg
     linkedin: "https://www.linkedin.com/in/gabriel-garcia-vazquez-2005b2260",
-    github: "", // [PLACEHOLDER — agregar GitHub de Gabriel]
+    github: "https://github.com/gabrielgarciavazquez57",
     accentColor: "#8BE9FD",
   },
   {
     id: "bruno",
     name: "Bruno Nicolás Romano",
     role: "COO & Backend Lead",
-    bio: "[PLACEHOLDER — Bio de Bruno pendiente. Pedile: especialidad técnica, algo personal que lo humanice, su enfoque del desarrollo.]",
+    bio: "Mi rol en MGB es darle estructura y escalabilidad a cada proyecto. Me enfoco en construir bases sólidas a nivel de código y asegurar la calidad de cada entrega. Para mí, un buen producto nace de entender el problema a fondo y diseñar una arquitectura que lo resuelva de forma definitiva.",
+    skills: ["Java", "Python", "PostgreSQL", "Docker", "AWS", "GitHub Actions"],
     initials: "BR",
+    photo: "/team/bruno.jpg", // ⬅ Guardar la foto en public/team/bruno.jpg
     linkedin: "https://www.linkedin.com/in/brunoromano22",
-    github: "", // [PLACEHOLDER — agregar GitHub de Bruno]
+    github: "https://github.com/romanobrunonicolas-netizen",
     accentColor: "#BD93F9",
   },
 ];
