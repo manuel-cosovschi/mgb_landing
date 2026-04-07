@@ -26,7 +26,7 @@ export function Process() {
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(189,147,249,0.15)] to-transparent" />
 
-      <div className="max-w-5xl mx-auto px-5 md:px-8">
+      <div className="max-w-5xl mx-auto px-6 md:px-10">
         <SectionHeading
           label="Proceso"
           title="Cómo"
@@ -87,7 +87,7 @@ export function Process() {
                   <div className={`hidden md:block w-[calc(50%-40px)] ${!isEven ? "pr-8" : "pl-8 order-last"}`} />
 
                   {/* Mobile card */}
-                  <div className="flex-1 md:hidden bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-3.5">
+                  <div className="flex-1 md:hidden bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-5">
                     <span className="text-[10px] font-mono text-[#E94560] uppercase tracking-wider block mb-1">
                       Paso {step.number}
                     </span>

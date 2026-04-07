@@ -20,7 +20,7 @@ export function FAQ() {
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.06)] to-transparent" />
 
-      <div className="max-w-3xl mx-auto px-5 md:px-8">
+      <div className="max-w-3xl mx-auto px-6 md:px-10">
         <SectionHeading
           label="FAQ"
           title="Preguntas"
@@ -49,7 +49,7 @@ export function FAQ() {
               transition={{ duration: 0.2 }}
             >
               <button
-                className="w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer"
+                className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left cursor-pointer"
                 onClick={() => toggle(item.id)}
                 aria-expanded={openId === item.id}
               >
@@ -76,7 +76,7 @@ export function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div className="px-5 pb-5">
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6">
                       <div className="h-px bg-[rgba(255,255,255,0.05)] mb-4" />
                       <p className="text-[#7A7A95] text-sm leading-relaxed">
                         {item.answer}

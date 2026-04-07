@@ -20,7 +20,7 @@ export function Testimonials() {
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.06)] to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionHeading
           label="Testimonios"
           title="Lo que dicen nuestros"

@@ -36,7 +36,7 @@ export function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center px-5 max-w-5xl mx-auto w-full"
+        className="relative z-10 flex flex-col items-center text-center px-6 sm:px-10 max-w-5xl mx-auto w-full"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"

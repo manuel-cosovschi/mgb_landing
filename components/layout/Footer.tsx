@@ -36,7 +36,7 @@ export function Footer() {
       {/* Top gradient fade */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(233,69,96,0.3)] to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Col 1 — Brand */}
           <div className="col-span-2 md:col-span-1">

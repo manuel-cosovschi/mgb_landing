@@ -137,7 +137,7 @@ export function Contact() {
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.06)] to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionHeading
           label="Contacto"
           title="Hablemos de tu"
@@ -154,7 +154,7 @@ export function Contact() {
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <div className="bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-4 sm:p-6 md:p-8">
+            <div className="bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-6 sm:p-7 md:p-8">
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
