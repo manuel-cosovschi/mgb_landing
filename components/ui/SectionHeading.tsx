@@ -25,7 +25,7 @@ export function SectionHeading({
 
   return (
     <motion.div
-      className={cn("flex flex-col gap-4 mb-12 md:mb-16", alignClass, className)}
+      className={cn("flex flex-col gap-3 mb-8 md:mb-12 lg:mb-16", alignClass, className)}
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -42,7 +42,7 @@ export function SectionHeading({
       )}
 
       <motion.h2
-        className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading"
         variants={fadeUp}
       >
         {titleHighlight ? (
@@ -58,7 +58,7 @@ export function SectionHeading({
       {subtitle && (
         <motion.p
           className={cn(
-            "text-[#7A7A95] text-lg leading-relaxed",
+            "text-[#7A7A95] text-sm sm:text-base md:text-lg leading-relaxed",
             align === "center" && "max-w-2xl"
           )}
           variants={fadeUp}

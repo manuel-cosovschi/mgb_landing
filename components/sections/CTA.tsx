@@ -49,7 +49,7 @@ export function CTA() {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight"
           >
             ¿Tenés un proyecto{" "}
             <span className="gradient-text">en mente?</span>
@@ -67,11 +67,11 @@ export function CTA() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-col sm:flex-row items-center gap-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
           >
             <motion.button
               onClick={() => scrollTo("#contacto")}
-              className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-[#E94560] hover:bg-[#d63851] shadow-glow-md hover:shadow-glow-lg transition-all duration-200 cursor-pointer text-base"
+              className="btn-shimmer inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-[#E94560] hover:bg-[#d63851] shadow-glow-md hover:shadow-glow-lg transition-all duration-200 cursor-pointer text-sm sm:text-base"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -83,7 +83,7 @@ export function CTA() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-[#50FA7B] border border-[rgba(80,250,123,0.25)] hover:bg-[rgba(80,250,123,0.06)] transition-all duration-200 text-base"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-[#50FA7B] border border-[rgba(80,250,123,0.25)] hover:bg-[rgba(80,250,123,0.06)] transition-all duration-200 text-sm sm:text-base"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
             >

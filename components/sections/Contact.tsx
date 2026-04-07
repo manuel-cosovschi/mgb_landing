@@ -154,7 +154,7 @@ export function Contact() {
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <div className="bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-6 md:p-8">
+            <div className="bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-4 sm:p-6 md:p-8">
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
@@ -184,7 +184,7 @@ export function Contact() {
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex flex-col gap-5"
+                    className="flex flex-col gap-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >

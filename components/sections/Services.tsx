@@ -45,7 +45,7 @@ export function Services() {
         />
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -71,7 +71,7 @@ interface ServiceCardProps {
 function ServiceCard({ service, Icon }: ServiceCardProps) {
   return (
     <motion.div
-      className="group relative bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-6 overflow-hidden cursor-default"
+      className="group relative bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-4 sm:p-6 overflow-hidden cursor-default"
       variants={fadeUp}
       whileHover={{
         scale: 1.02,

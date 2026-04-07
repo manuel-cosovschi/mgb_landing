@@ -58,7 +58,7 @@ interface WhyCardProps {
 function WhyCard({ item, Icon }: WhyCardProps) {
   return (
     <motion.div
-      className="group relative bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-7 overflow-hidden"
+      className="group relative bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-5 sm:p-7 overflow-hidden"
       variants={fadeUp}
       whileHover={{
         borderColor: "rgba(255,255,255,0.1)",

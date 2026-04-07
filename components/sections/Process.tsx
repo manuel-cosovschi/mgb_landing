@@ -79,25 +79,25 @@ export function Process() {
                   </div>
 
                   {/* Center dot */}
-                  <div className="relative z-10 w-11 h-11 shrink-0 md:mx-auto rounded-full bg-[#0A0A1A] border-2 border-[rgba(233,69,96,0.4)] flex items-center justify-center">
-                    {Icon && <Icon size={18} className="text-[#E94560]" />}
+                  <div className="relative z-10 w-9 h-9 md:w-11 md:h-11 shrink-0 md:mx-auto rounded-full bg-[#0A0A1A] border-2 border-[rgba(233,69,96,0.4)] flex items-center justify-center">
+                    {Icon && <Icon size={16} className="text-[#E94560]" />}
                   </div>
 
                   {/* Spacer for even items on desktop */}
                   <div className={`hidden md:block w-[calc(50%-40px)] ${!isEven ? "pr-8" : "pl-8 order-last"}`} />
 
                   {/* Mobile card */}
-                  <div className="flex-1 md:hidden bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-4">
-                    <span className="text-xs font-mono text-[#E94560] uppercase tracking-wider block mb-1">
+                  <div className="flex-1 md:hidden bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-3.5">
+                    <span className="text-[10px] font-mono text-[#E94560] uppercase tracking-wider block mb-1">
                       Paso {step.number}
                     </span>
-                    <h3 className="text-base font-bold font-heading text-[#EEEEF2] mb-2">
+                    <h3 className="text-sm font-bold font-heading text-[#EEEEF2] mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-[#7A7A95] text-sm leading-relaxed mb-3">
+                    <p className="text-[#7A7A95] text-xs leading-relaxed mb-2.5">
                       {step.description}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#BD93F9] bg-[rgba(189,147,249,0.08)] border border-[rgba(189,147,249,0.15)] px-2.5 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-mono text-[#BD93F9] bg-[rgba(189,147,249,0.08)] border border-[rgba(189,147,249,0.15)] px-2 py-0.5 rounded-full">
                       ⏱ {step.duration}
                     </span>
                   </div>

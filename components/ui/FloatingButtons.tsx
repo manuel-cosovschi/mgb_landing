@@ -19,7 +19,7 @@ export function FloatingButtons() {
   const waLink = `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
 
   return (
-    <div className="fixed bottom-6 right-5 z-40 flex flex-col items-center gap-3">
+    <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-5 z-40 flex flex-col items-center gap-3">
       {/* Scroll to top */}
       <AnimatePresence>
         {showScrollTop && (
@@ -42,7 +42,7 @@ export function FloatingButtons() {
         href={waLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-13 h-13 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
         style={{ backgroundColor: "#25D366" }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

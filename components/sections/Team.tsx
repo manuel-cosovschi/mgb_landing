@@ -64,7 +64,7 @@ function TeamCard({ member }: TeamCardProps) {
 
   return (
     <motion.div
-      className="group relative bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-7 flex flex-col items-center text-center overflow-hidden"
+      className="group relative bg-[#0A0A1A] rounded-2xl border border-[rgba(255,255,255,0.05)] p-5 sm:p-7 flex flex-col items-center text-center overflow-hidden"
       variants={fadeUp}
       whileHover={{
         y: -6,

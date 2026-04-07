@@ -55,10 +55,10 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         transition: { duration: 0.3 },
       }}
     >
-      <div className={`flex flex-col ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} min-h-[280px]`}>
-        {/* Mockup / visual */}
+      <div className={`flex flex-col ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
+        {/* Mockup / visual — oculto en mobile para ahorrar espacio */}
         <motion.div
-          className="w-full md:w-2/5 min-h-[200px] md:min-h-full relative flex items-center justify-center overflow-hidden"
+          className="hidden md:flex w-full md:w-2/5 min-h-[240px] md:min-h-full relative items-center justify-center overflow-hidden"
           style={{
             background: `linear-gradient(135deg, ${project.categoryColor}08 0%, rgba(10,10,26,0.8) 100%)`,
             borderRight: !isLeft ? "none" : "1px solid rgba(255,255,255,0.04)",
@@ -111,58 +111,53 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.div>
 
         {/* Content */}
-        <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+        <div className="flex-1 p-5 md:p-8 flex flex-col justify-center">
           {/* Header */}
-          <div className="flex items-start justify-between gap-4 mb-4">
-            <div>
-              <span
-                className="text-xs font-mono font-medium px-2.5 py-1 rounded-full mb-2 inline-block"
-                style={{
-                  color: project.categoryColor,
-                  background: `${project.categoryColor}15`,
-                  border: `1px solid ${project.categoryColor}25`,
-                }}
-              >
-                {project.category}
-              </span>
-              <h3 className="text-lg md:text-xl font-bold font-heading text-[#EEEEF2]">
-                {project.name}
-              </h3>
-            </div>
+          <div className="mb-3 md:mb-4">
+            <span
+              className="text-xs font-mono font-medium px-2.5 py-1 rounded-full mb-2 inline-block"
+              style={{
+                color: project.categoryColor,
+                background: `${project.categoryColor}15`,
+                border: `1px solid ${project.categoryColor}25`,
+              }}
+            >
+              {project.category}
+            </span>
+            <h3 className="text-base md:text-xl font-bold font-heading text-[#EEEEF2]">
+              {project.name}
+            </h3>
           </div>
 
           {/* Problem / Solution */}
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2.5 mb-4 md:mb-6">
             <div>
-              <span className="text-xs font-mono text-[#4A4A65] uppercase tracking-wider">
+              <span className="text-[10px] font-mono text-[#4A4A65] uppercase tracking-wider">
                 Problema
               </span>
-              <p className="text-[#7A7A95] text-sm mt-1 leading-relaxed">
+              <p className="text-[#7A7A95] text-xs sm:text-sm mt-1 leading-relaxed">
                 {project.problem}
               </p>
             </div>
             <div>
-              <span className="text-xs font-mono text-[#4A4A65] uppercase tracking-wider">
+              <span className="text-[10px] font-mono text-[#4A4A65] uppercase tracking-wider">
                 Solución
               </span>
-              <p className="text-[#EEEEF2] text-sm mt-1 leading-relaxed">
+              <p className="text-[#EEEEF2] text-xs sm:text-sm mt-1 leading-relaxed">
                 {project.solution}
               </p>
             </div>
           </div>
 
           {/* Metrics */}
-          <div className="flex flex-wrap gap-4 mb-6">
+          <div className="flex flex-wrap gap-3 md:gap-5 mb-4 md:mb-6">
             {project.metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col">
-                <span className="text-2xl font-bold font-heading text-[#EEEEF2]">
+                <span className="text-xl md:text-2xl font-bold font-heading text-[#EEEEF2]">
                   {metric.prefix}
-                  <AnimatedCounter
-                    value={metric.value}
-                    suffix={metric.suffix}
-                  />
+                  <AnimatedCounter value={metric.value} suffix={metric.suffix} />
                 </span>
-                <span className="text-xs text-[#7A7A95]">{metric.label}</span>
+                <span className="text-[10px] sm:text-xs text-[#7A7A95]">{metric.label}</span>
               </div>
             ))}
           </div>
