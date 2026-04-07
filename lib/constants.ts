@@ -82,7 +82,7 @@ export const WHY_MGB = [
     icon: "Code2",
     title: "Equipo 100% técnico",
     description:
-      "Los tres socios somos ingenieros en sistemas y programamos activamente. No hay gerentes de cuenta ni intermediarios. Hablás directamente con quien construye tu producto.",
+      "Los tres socios somos técnicos e ingenieros en sistemas y programamos activamente. No hay gerentes de cuenta ni intermediarios. Hablás directamente con quien construye tu producto.",
     stat: "3 de 3 socios son developers",
     number: "01",
   },

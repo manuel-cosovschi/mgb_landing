@@ -45,8 +45,8 @@ export function Team() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          Los tres somos estudiantes de Ingeniería en Sistemas y desarrolladores
-          activos. Lo que nos une va más allá del código:{" "}
+          Dos ingenieros en sistemas y un técnico en programación de la UTN, todos
+          desarrolladores activos. Lo que nos une va más allá del código:{" "}
           <span className="text-[#EEEEF2]">somos amigos desde chicos.</span>
         </motion.p>
       </div>
