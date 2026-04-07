@@ -123,9 +123,9 @@ export const PORTFOLIO = [
     category: "Bot con IA",
     categoryColor: "#50FA7B",
     problem:
-      "Un negocio gastronómico saturado de consultas repetitivas por WhatsApp que no podía atender fuera del horario laboral.",
+      "Las Cañas, un complejo de cabañas en Mar de Cobo, recibía cientos de consultas por WhatsApp que el equipo no daba abasto para responder, especialmente fuera del horario laboral.",
     solution:
-      "Desarrollamos un bot conversacional inteligente que atiende automáticamente 24/7, entiende mensajes de texto y audio, y responde con la información exacta del negocio.",
+      "Desarrollamos un bot conversacional inteligente que atiende automáticamente 24/7, entiende mensajes de texto y audio, y responde con información exacta del complejo sin intervención humana.",
     metrics: [
       { value: 70, suffix: "%", label: "menos consultas manuales", prefix: "-" },
       { value: 24, suffix: "/7", label: "disponibilidad", prefix: "" },
@@ -135,27 +135,44 @@ export const PORTFOLIO = [
     imagePosition: "right" as const,
   },
   {
+    id: "las-canas-web",
+    name: "Sitio Web — Las Cañas Mar de Cobo",
+    category: "Desarrollo Web",
+    categoryColor: "#BD93F9",
+    problem:
+      "El complejo de cabañas Las Cañas no tenía presencia web propia y dependía de plataformas de terceros para captar reservas, perdiendo visibilidad y margen.",
+    solution:
+      "Diseñamos y desarrollamos lascaniasmardecobo.com, un sitio moderno con galería, información del complejo y contacto directo, optimizado para SEO y carga rápida.",
+    metrics: [
+      { value: 100, suffix: "%", label: "presencia web propia", prefix: "" },
+      { value: 3, suffix: "s", label: "tiempo de carga", prefix: "<" },
+      { value: 0, suffix: "", label: "comisiones a terceros", prefix: "" },
+    ],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    imagePosition: "left" as const,
+  },
+  {
     id: "fitnow",
-    name: "FitNow — App de Fitness",
+    name: "FitNow — Marketplace de Actividades Físicas",
     category: "App Mobile",
     categoryColor: "#8BE9FD",
     problem:
-      "Los entrenadores personales gestionan a sus clientes con WhatsApp y planillas de Excel, perdiendo tiempo y profesionalismo.",
+      "No existe una plataforma unificada donde encontrar y reservar actividades físicas. Personal trainers, gyms y clubes están dispersos sin forma de compararlos ni gestionarlos en un solo lugar.",
     solution:
-      "Estamos desarrollando una app mobile nativa para iOS que permite a entrenadores crear rutinas, hacer seguimiento de progreso y comunicarse con sus alumnos desde una sola plataforma.",
+      "Estamos desarrollando FitNow, un marketplace de actividades físicas —el Pedidos Ya del fitness— donde podés encontrar entrenadores, gyms y clubes, reservar actividades y gestionar todo desde un único Dashboard.",
     metrics: [
-      { value: 100, suffix: "%", label: "nativo iOS", prefix: "" },
-      { value: 0, suffix: "", label: "dependencias externas", prefix: "" },
+      { value: 3, suffix: "", label: "tipos de proveedores", prefix: "" },
+      { value: 1, suffix: "", label: "Dashboard unificado", prefix: "" },
       { value: 2, suffix: "", label: "plataformas objetivo", prefix: "" },
     ],
-    tags: ["Swift", "Xcode", "iOS"],
-    imagePosition: "left" as const,
+    tags: ["Swift", "Xcode", "iOS", "Node.js", "PostgreSQL"],
+    imagePosition: "right" as const,
   },
   {
     id: "pitch",
     name: "Pitch Interactivo — Presentación Web",
     category: "Desarrollo Web",
-    categoryColor: "#BD93F9",
+    categoryColor: "#E94560",
     problem:
       "Necesitábamos presentar proyectos en una entrevista de forma memorable e impactante, más allá de un PDF aburrido.",
     solution:
@@ -166,7 +183,7 @@ export const PORTFOLIO = [
       { value: 0, suffix: "s", label: "tiempo de carga", prefix: "~" },
     ],
     tags: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
-    imagePosition: "right" as const,
+    imagePosition: "left" as const,
   },
 ] as const;
 
@@ -214,7 +231,7 @@ export const PROCESS_STEPS = [
     icon: "LifeBuoy",
     title: "Soporte",
     description:
-      "30 días de garantía incluidos. Después, si querés, ofrecemos planes de mantenimiento mensual para que tu producto siempre esté al día.",
+      "30 días de mantenimiento incluido post-entrega: resolvemos bugs y ajustes sin costo adicional. Aclaramos que no es una garantía de devolución de dinero, sino de soporte técnico. Después, ofrecemos planes de mantenimiento mensual.",
     duration: "Ongoing",
   },
 ] as const;
@@ -355,7 +372,7 @@ export const FAQ = [
     id: "after-delivery",
     question: "¿Qué pasa después de la entrega?",
     answer:
-      "Incluimos 30 días de garantía donde corregimos cualquier bug sin costo. Después, ofrecemos planes de mantenimiento mensual para que tu producto esté siempre al día.",
+      "Incluimos 30 días de mantenimiento post-entrega: corregimos bugs y hacemos ajustes sin costo adicional. Importante: no es una garantía de devolución de dinero, sino de soporte técnico incluido ese mes. Después podés contratar un plan de mantenimiento mensual.",
   },
   {
     id: "ownership",
@@ -376,10 +393,16 @@ export const FAQ = [
       "Sí, es parte de nuestro proceso. Cada semana te mostramos una demo con lo que avanzamos. Podés dar feedback en tiempo real y ajustamos sobre la marcha.",
   },
   {
+    id: "payment",
+    question: "¿Cómo es la forma de pago?",
+    answer:
+      "El pago se divide en dos partes: 50% al firmar el contrato para dar inicio al proyecto, y el 50% restante al momento de la entrega final. Sin costos ocultos ni sorpresas.",
+  },
+  {
     id: "contract",
     question: "¿Trabajan con un contrato?",
     answer:
-      "Sí, siempre. Firmamos un contrato que define alcance, plazos, precio y condiciones. Todo claro desde el día uno.",
+      "Sí, siempre. Firmamos un contrato que define alcance, plazos, precio, forma de pago y condiciones. Todo claro desde el día uno.",
   },
 ] as const;
 
