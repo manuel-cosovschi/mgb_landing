@@ -178,9 +178,9 @@ export const PORTFOLIO = [
     solution:
       "Construimos una presentación completamente interactiva en código puro (HTML/CSS/JS), optimizada para iPad con navegación táctil y animaciones fluidas, deployada en GitHub Pages.",
     metrics: [
-      { value: 0, suffix: "", label: "dependencias externas", prefix: "" },
       { value: 100, suffix: "%", label: "código propio", prefix: "" },
-      { value: 0, suffix: "s", label: "tiempo de carga", prefix: "~" },
+      { value: 1, suffix: "s", label: "tiempo de carga", prefix: "<" },
+      { value: 0, suffix: " deps", label: "dependencias externas", prefix: "" },
     ],
     tags: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
     imagePosition: "left" as const,
@@ -282,7 +282,7 @@ export const TEAM: TeamMember[] = [
     bio: "Mi rol en MGB es darle estructura y escalabilidad a cada proyecto. Me enfoco en construir bases sólidas a nivel de código y asegurar la calidad de cada entrega. Para mí, un buen producto nace de entender el problema a fondo y diseñar una arquitectura que lo resuelva de forma definitiva.",
     skills: ["Java", "Python", "PostgreSQL", "Docker", "AWS", "GitHub Actions"],
     initials: "BR",
-    photo: "/bruno.jpeg",
+    photo: "/bruno.png",
     linkedin: "https://www.linkedin.com/in/brunoromano22",
     github: "https://github.com/romanobrunonicolas-netizen",
     accentColor: "#BD93F9",

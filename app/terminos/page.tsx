@@ -11,7 +11,7 @@ export default function TerminosPage() {
   return (
     <div className="min-h-screen bg-[#050510] text-[#EEEEF2]">
       {/* Header */}
-      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-8 md:px-12">
+      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-6 sm:px-8">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-[#7A7A95] hover:text-[#EEEEF2] transition-colors text-sm"
@@ -20,23 +20,25 @@ export default function TerminosPage() {
         </Link>
       </header>
 
-      <main className="max-w-3xl mx-auto px-8 md:px-12 py-16 md:py-24">
-        <div className="mb-10">
-          <span className="text-xs font-mono text-[#E94560] uppercase tracking-widest">
+      <main className="mx-auto w-full max-w-3xl px-6 sm:px-8 py-14 sm:py-20">
+        {/* Page header */}
+        <header className="mb-12">
+          <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-[#E94560]">
             Legal
-          </span>
-          <h1 className="text-3xl md:text-4xl font-bold font-heading mt-3 mb-3">
+          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight leading-tight mb-4">
             Términos y Condiciones
           </h1>
-          <p className="text-[#7A7A95] text-sm">
+          <p className="text-sm text-[#4A4A65]">
             Última actualización: abril de 2025
           </p>
-        </div>
+        </header>
 
-        <div className="space-y-8 text-[#7A7A95] leading-relaxed">
+        {/* Content */}
+        <div className="space-y-10 text-base leading-7 text-[#7A7A95]">
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               1. Identificación
             </h2>
             <p>
@@ -56,8 +58,8 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               2. Alcance de los servicios
             </h2>
             <p>
@@ -74,60 +76,62 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               3. Forma de pago
             </h2>
             <p>
               El pago de cualquier proyecto se estructura de la siguiente manera:
             </p>
-            <ul className="list-disc list-inside space-y-2 ml-2">
+            <ul className="space-y-3 pl-5 list-disc marker:text-[#E94560]">
               <li>
-                <span className="text-[#EEEEF2]">50% al firmar el contrato:</span>{" "}
+                <span className="text-[#EEEEF2] font-medium">50% al firmar el contrato:</span>{" "}
                 este pago da inicio formal al proyecto y reserva la capacidad
-                del equipo.
+                del equipo. No se inicia ningún trabajo sin la recepción de
+                este primer pago.
               </li>
               <li>
-                <span className="text-[#EEEEF2]">50% al entregar el producto final:</span>{" "}
+                <span className="text-[#EEEEF2] font-medium">50% al entregar el producto final:</span>{" "}
                 este pago se realiza al momento de la entrega del producto
                 terminado y aprobado por el cliente.
               </li>
             </ul>
             <p>
-              No se inicia ningún trabajo sin la recepción del primer pago. Los
-              medios de pago aceptados (transferencia bancaria, u otros) se
+              Los medios de pago aceptados (transferencia bancaria u otros) se
               especifican en el contrato de cada proyecto.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               4. Proceso de desarrollo y entregas
             </h2>
             <p>
-              El desarrollo se realiza en sprints semanales con demos
-              periódicas para el cliente. El cliente se compromete a brindar
-              feedback en los plazos acordados. Demoras en la revisión y
-              aprobación por parte del cliente pueden extender el plazo de
-              entrega sin responsabilidad para MGB.
+              El desarrollo se realiza en sprints semanales con demos periódicas
+              para el cliente. El cliente se compromete a brindar feedback en
+              los plazos acordados. Demoras en la revisión y aprobación por
+              parte del cliente pueden extender el plazo de entrega sin
+              responsabilidad para MGB.
             </p>
             <p>
               Cualquier modificación del alcance original durante el desarrollo
-              (cambios de funcionalidades, nuevas secciones, etc.) deberá
-              acordarse por escrito y puede implicar un ajuste de precio y/o
-              plazo.
+              (nuevas funcionalidades, cambios de diseño, etc.) deberá acordarse
+              por escrito y puede implicar un ajuste de precio y/o plazo.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               5. Período de mantenimiento post-entrega
             </h2>
             <p>
-              Todo proyecto incluye <span className="text-[#EEEEF2]">30 días de mantenimiento post-entrega</span> sin
-              costo adicional, que comprenden:
+              Todo proyecto incluye{" "}
+              <span className="text-[#EEEEF2] font-medium">
+                30 días de mantenimiento post-entrega
+              </span>{" "}
+              sin costo adicional, que comprenden:
             </p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
+            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
               <li>
                 Corrección de bugs o errores de funcionamiento detectados en el
                 producto entregado
@@ -137,12 +141,12 @@ export default function TerminosPage() {
                 cambios de alcance
               </li>
             </ul>
-            <p className="text-[#EEEEF2] font-medium">
-              Este período de mantenimiento no constituye una garantía de
-              devolución de dinero. Una vez iniciado el proyecto y desembolsado
-              el primer pago, no se realizan reembolsos bajo ningún concepto,
-              salvo incumplimiento grave por parte de MGB demostrable por
-              escrito.
+            <p className="text-[#EEEEF2] bg-[rgba(233,69,96,0.06)] border border-[rgba(233,69,96,0.15)] rounded-xl px-4 py-3 leading-7">
+              Este período de mantenimiento <strong>no constituye una garantía
+              de devolución de dinero</strong>. Una vez iniciado el proyecto y
+              desembolsado el primer pago, no se realizan reembolsos bajo ningún
+              concepto, salvo incumplimiento grave por parte de MGB demostrable
+              por escrito.
             </p>
             <p>
               Al finalizar los 30 días, el cliente puede contratar un plan de
@@ -151,8 +155,8 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               6. Propiedad intelectual
             </h2>
             <p>
@@ -162,19 +166,19 @@ export default function TerminosPage() {
             </p>
             <p>
               MGB se reserva el derecho de utilizar el proyecto como caso de
-              estudio en su portfolio, mencionando al cliente, salvo que este
-              solicite expresamente lo contrario por escrito.
+              estudio en su portfolio, salvo que el cliente solicite expresamente
+              lo contrario por escrito.
             </p>
             <p>
               Las librerías, frameworks y herramientas de terceros utilizadas en
               el desarrollo están sujetas a sus propias licencias, que son
-              responsabilidad del cliente conocer y respetar en el uso
-              posterior del producto.
+              responsabilidad del cliente conocer y respetar en el uso posterior
+              del producto.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               7. Confidencialidad
             </h2>
             <p>
@@ -185,24 +189,21 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               8. Limitación de responsabilidad
             </h2>
             <p>
               MGB no se hace responsable por pérdidas económicas indirectas,
               lucro cesante ni daños consecuentes derivados del uso o
-              imposibilidad de uso del software entregado.
-            </p>
-            <p>
-              La responsabilidad máxima de MGB ante cualquier reclamo se limita
-              al monto efectivamente pagado por el cliente en el proyecto en
-              cuestión.
+              imposibilidad de uso del software entregado. La responsabilidad
+              máxima de MGB ante cualquier reclamo se limita al monto
+              efectivamente pagado por el cliente en el proyecto en cuestión.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               9. Jurisdicción
             </h2>
             <p>
@@ -213,8 +214,8 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               10. Modificaciones
             </h2>
             <p>
@@ -225,12 +226,13 @@ export default function TerminosPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               11. Contacto
             </h2>
             <p>
-              Para consultas sobre estos términos o la contratación de servicios:{" "}
+              Para consultas sobre estos términos o la contratación de
+              servicios:{" "}
               <a
                 href="mailto:mgbsoftwarefactory@gmail.com"
                 className="text-[#E94560] hover:underline"
@@ -241,7 +243,7 @@ export default function TerminosPage() {
           </section>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)]">
+        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.05)]">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors"

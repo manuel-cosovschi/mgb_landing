@@ -11,7 +11,7 @@ export default function PrivacidadPage() {
   return (
     <div className="min-h-screen bg-[#050510] text-[#EEEEF2]">
       {/* Header */}
-      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-8 md:px-12">
+      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-6 sm:px-8">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-[#7A7A95] hover:text-[#EEEEF2] transition-colors text-sm"
@@ -20,30 +20,31 @@ export default function PrivacidadPage() {
         </Link>
       </header>
 
-      <main className="max-w-3xl mx-auto px-8 md:px-12 py-16 md:py-24">
-        <div className="mb-10">
-          <span className="text-xs font-mono text-[#E94560] uppercase tracking-widest">
+      <main className="mx-auto w-full max-w-3xl px-6 sm:px-8 py-14 sm:py-20">
+        {/* Page header */}
+        <header className="mb-12">
+          <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-[#E94560]">
             Legal
-          </span>
-          <h1 className="text-3xl md:text-4xl font-bold font-heading mt-3 mb-3">
+          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight leading-tight mb-4">
             Política de Privacidad
           </h1>
-          <p className="text-[#7A7A95] text-sm">
+          <p className="text-sm text-[#4A4A65]">
             Última actualización: abril de 2025
           </p>
-        </div>
+        </header>
 
-        <div className="prose prose-invert max-w-none space-y-8 text-[#7A7A95] leading-relaxed">
+        {/* Content */}
+        <div className="space-y-10 text-base leading-7 text-[#7A7A95]">
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               1. Responsable del tratamiento
             </h2>
             <p>
               MGB Software (en adelante, "nosotros" o "MGB") es el responsable
-              del tratamiento de los datos personales recopilados a través del
-              sitio web <span className="text-[#EEEEF2]">mgb-landing-xi.vercel.app</span> y
-              sus formularios de contacto.
+              del tratamiento de los datos personales recopilados a través de
+              este sitio web y sus formularios de contacto.
             </p>
             <p>
               Podés contactarnos en cualquier momento a través de:{" "}
@@ -56,15 +57,15 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               2. Datos que recopilamos
             </h2>
             <p>
               Recopilamos únicamente los datos que vos mismo nos proporcionás a
               través del formulario de contacto:
             </p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
+            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
               <li>Nombre completo</li>
               <li>Dirección de correo electrónico</li>
               <li>Número de WhatsApp / teléfono (opcional)</li>
@@ -75,24 +76,23 @@ export default function PrivacidadPage() {
             <p>
               No recopilamos datos de manera automática más allá de los logs
               estándar del servidor (dirección IP, navegador, fecha/hora de
-              acceso) que son inherentes al funcionamiento de cualquier sitio web.
+              acceso) inherentes al funcionamiento de cualquier sitio web.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               3. Finalidad del tratamiento
             </h2>
             <p>Usamos tus datos exclusivamente para:</p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
+            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
               <li>Responder a tu consulta o solicitud de presupuesto</li>
               <li>
                 Contactarte para agendar una reunión o dar seguimiento a tu
                 proyecto
               </li>
               <li>
-                Enviarte información relevante relacionada con el servicio que
-                consultaste
+                Enviarte información relacionada con el servicio que consultaste
               </li>
             </ul>
             <p>
@@ -102,8 +102,8 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               4. Base legal
             </h2>
             <p>
@@ -113,8 +113,8 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               5. Conservación de datos
             </h2>
             <p>
@@ -125,8 +125,8 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               6. Compartición de datos con terceros
             </h2>
             <p>
@@ -146,15 +146,15 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
-              7. Tus derechos
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
+              7. Tus derechos (Ley 25.326)
             </h2>
             <p>
               De acuerdo con la Ley N° 25.326 de Protección de los Datos
-              Personales (Argentina) y normativa aplicable, tenés derecho a:
+              Personales (Argentina), tenés derecho a:
             </p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
+            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
               <li>
                 <span className="text-[#EEEEF2]">Acceder</span> a los datos
                 personales que tenemos de vos
@@ -185,8 +185,8 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               8. Seguridad
             </h2>
             <p>
@@ -197,8 +197,8 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               9. Cambios en esta política
             </h2>
             <p>
@@ -209,13 +209,13 @@ export default function PrivacidadPage() {
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold font-heading text-[#EEEEF2]">
+          <section className="space-y-4">
+            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
               10. Contacto
             </h2>
             <p>
               Ante cualquier consulta relacionada con esta política o el
-              tratamiento de tus datos, podés escribirnos a:{" "}
+              tratamiento de tus datos:{" "}
               <a
                 href="mailto:mgbsoftwarefactory@gmail.com"
                 className="text-[#E94560] hover:underline"
@@ -226,7 +226,7 @@ export default function PrivacidadPage() {
           </section>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)]">
+        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.05)]">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors"

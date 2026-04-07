@@ -48,19 +48,29 @@ export function TechStack() {
         viewport={viewportConfig}
       >
         {/* Row 1 → */}
-        <div className="marquee-track overflow-hidden">
-          <div className="marquee-inner flex gap-4 animate-marquee">
-            {row1.map((tech, i) => (
-              <TechBadge key={`${tech.name}-${i}`} name={tech.name} />
+        <div className="marquee-track overflow-hidden whitespace-nowrap">
+          <div className="marquee-inner inline-flex gap-4 animate-marquee">
+            {TECH_STACK_ROW1.map((tech, i) => (
+              <TechBadge key={`r1a-${i}`} name={tech.name} />
+            ))}
+          </div>
+          <div className="marquee-inner inline-flex gap-4 animate-marquee" aria-hidden="true">
+            {TECH_STACK_ROW1.map((tech, i) => (
+              <TechBadge key={`r1b-${i}`} name={tech.name} />
             ))}
           </div>
         </div>
 
         {/* Row 2 ← */}
-        <div className="marquee-track overflow-hidden">
-          <div className="marquee-inner flex gap-4 animate-marquee-reverse">
-            {row2.map((tech, i) => (
-              <TechBadge key={`${tech.name}-${i}`} name={tech.name} />
+        <div className="marquee-track overflow-hidden whitespace-nowrap">
+          <div className="marquee-inner inline-flex gap-4 animate-marquee-reverse">
+            {TECH_STACK_ROW2.map((tech, i) => (
+              <TechBadge key={`r2a-${i}`} name={tech.name} />
+            ))}
+          </div>
+          <div className="marquee-inner inline-flex gap-4 animate-marquee-reverse" aria-hidden="true">
+            {TECH_STACK_ROW2.map((tech, i) => (
+              <TechBadge key={`r2b-${i}`} name={tech.name} />
             ))}
           </div>
         </div>

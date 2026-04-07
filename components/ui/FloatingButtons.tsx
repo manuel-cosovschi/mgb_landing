@@ -19,7 +19,7 @@ export function FloatingButtons() {
   const waLink = `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
 
   return (
-    <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-5 z-40 flex flex-col items-center gap-3">
+    <div className="fixed z-40 flex flex-col items-center gap-3" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom, 1.25rem))", right: "max(1rem, env(safe-area-inset-right, 1rem))" }}>
       {/* Scroll to top */}
       <AnimatePresence>
         {showScrollTop && (
