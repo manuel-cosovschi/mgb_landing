@@ -28,7 +28,7 @@ export function CTA() {
 
       <GlowEffect color="#E94560" size="xl" opacity={0.06} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-      <div className="relative max-w-4xl mx-auto px-6 md:px-10 text-center">
+      <div className="relative max-w-4xl mx-auto px-8 md:px-12 text-center">
         <motion.div
           variants={staggerContainer}
           initial="hidden"

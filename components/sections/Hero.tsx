@@ -36,7 +36,7 @@ export function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center px-6 sm:px-10 max-w-5xl mx-auto w-full"
+        className="relative z-10 flex flex-col items-center text-center px-8 sm:px-12 max-w-5xl mx-auto w-full"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
@@ -66,7 +66,7 @@ export function Hero() {
           className="text-[#7A7A95] text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-7 sm:mb-9"
           variants={fadeUp}
         >
-          Somos tres ingenieros en sistemas que desarrollamos{" "}
+          Somos ingenieros y técnico en sistemas que desarrollamos{" "}
           <span className="text-[#EEEEF2]">aplicaciones web</span>,{" "}
           <span className="text-[#EEEEF2]">bots de WhatsApp con IA</span>{" "}
           y{" "}
@@ -76,12 +76,12 @@ export function Hero() {
 
         {/* CTAs — full width en mobile */}
         <motion.div
-          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10 sm:mb-14 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-center gap-3 mb-10 sm:mb-14"
           variants={fadeUp}
         >
           <motion.button
             onClick={() => scrollTo("#contacto")}
-            className="btn-shimmer inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-semibold text-white bg-[#E94560] hover:bg-[#d63851] shadow-glow-sm hover:shadow-glow-md transition-all duration-200 cursor-pointer text-sm sm:text-base"
+            className="btn-shimmer inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-semibold text-white bg-[#E94560] hover:bg-[#d63851] shadow-glow-sm hover:shadow-glow-md transition-all duration-200 cursor-pointer text-sm sm:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -90,7 +90,7 @@ export function Hero() {
           </motion.button>
           <motion.button
             onClick={() => scrollTo("#portfolio")}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-semibold text-[#EEEEF2] border border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-200 cursor-pointer text-sm sm:text-base"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-semibold text-[#EEEEF2] border border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-200 cursor-pointer text-sm sm:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
