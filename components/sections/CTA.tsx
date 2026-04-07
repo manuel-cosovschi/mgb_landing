@@ -67,7 +67,7 @@ export function CTA() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-center gap-3"
           >
             <motion.button
               onClick={() => scrollTo("#contacto")}
@@ -98,13 +98,13 @@ export function CTA() {
             className="flex flex-wrap justify-center gap-6 pt-4 text-[#4A4A65] text-sm"
           >
             {[
-              "Respuesta en &lt;24hs",
+              "Respuesta en <24hs",
               "Sin compromiso",
               "Presupuesto sin costo",
             ].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <span className="text-[#50FA7B]">✓</span>
-                <span dangerouslySetInnerHTML={{ __html: item }} />
+                {item}
               </span>
             ))}
           </motion.div>

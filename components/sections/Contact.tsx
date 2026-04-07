@@ -324,12 +324,12 @@ export function Contact() {
 
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group"
+                className="flex items-center gap-3 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors group min-w-0"
               >
                 <div className="w-8 h-8 rounded-lg bg-[rgba(233,69,96,0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(233,69,96,0.15)] transition-colors">
                   <Mail size={14} className="text-[#E94560]" />
                 </div>
-                <span>{CONTACT.email}</span>
+                <span className="truncate">{CONTACT.email}</span>
               </a>
 
               <a

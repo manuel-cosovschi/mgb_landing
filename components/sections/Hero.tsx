@@ -66,7 +66,7 @@ export function Hero() {
           className="text-[#7A7A95] text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-7 sm:mb-9"
           variants={fadeUp}
         >
-          Somos ingenieros y técnico en sistemas que desarrollamos{" "}
+          Somos un equipo de ingenieros y desarrolladores que creamos{" "}
           <span className="text-[#EEEEF2]">aplicaciones web</span>,{" "}
           <span className="text-[#EEEEF2]">bots de WhatsApp con IA</span>{" "}
           y{" "}

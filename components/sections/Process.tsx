@@ -88,16 +88,16 @@ export function Process() {
 
                   {/* Mobile card */}
                   <div className="flex-1 md:hidden bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-5">
-                    <span className="text-[10px] font-mono text-[#E94560] uppercase tracking-wider block mb-1">
+                    <span className="text-xs font-mono text-[#E94560] uppercase tracking-wider block mb-1.5">
                       Paso {step.number}
                     </span>
-                    <h3 className="text-sm font-bold font-heading text-[#EEEEF2] mb-1.5">
+                    <h3 className="text-base font-bold font-heading text-[#EEEEF2] mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-[#7A7A95] text-xs leading-relaxed mb-2.5">
+                    <p className="text-[#7A7A95] text-sm leading-relaxed mb-3">
                       {step.description}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-mono text-[#BD93F9] bg-[rgba(189,147,249,0.08)] border border-[rgba(189,147,249,0.15)] px-2 py-0.5 rounded-full">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#BD93F9] bg-[rgba(189,147,249,0.08)] border border-[rgba(189,147,249,0.15)] px-2.5 py-1 rounded-full">
                       ⏱ {step.duration}
                     </span>
                   </div>

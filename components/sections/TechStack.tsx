@@ -5,10 +5,12 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { fadeUp, viewportConfig } from "@/lib/animations";
 import { TECH_STACK_ROW1, TECH_STACK_ROW2 } from "@/lib/constants";
 
-// Tech icons as simple SVG text badges — no external deps
-function TechBadge({ name }: { name: string }) {
+function TechBadge({ name, clone }: { name: string; clone?: boolean }) {
   return (
-    <div className="group flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#0A0A1A] border border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.12)] transition-all duration-300 shrink-0 cursor-default">
+    <div
+      className="group flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#0A0A1A] border border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.12)] transition-all duration-300 shrink-0 cursor-default"
+      aria-hidden={clone || undefined}
+    >
       <span className="text-sm font-medium text-[#7A7A95] group-hover:text-[#EEEEF2] transition-colors whitespace-nowrap">
         {name}
       </span>
@@ -17,9 +19,6 @@ function TechBadge({ name }: { name: string }) {
 }
 
 export function TechStack() {
-  const row1 = [...TECH_STACK_ROW1, ...TECH_STACK_ROW1];
-  const row2 = [...TECH_STACK_ROW2, ...TECH_STACK_ROW2];
-
   return (
     <section
       id="tecnologias"
@@ -48,29 +47,25 @@ export function TechStack() {
         viewport={viewportConfig}
       >
         {/* Row 1 → */}
-        <div className="marquee-track overflow-hidden whitespace-nowrap">
-          <div className="marquee-inner inline-flex gap-4 animate-marquee">
+        <div className="marquee-track overflow-hidden">
+          <div className="marquee-inner flex gap-4 animate-marquee w-max">
             {TECH_STACK_ROW1.map((tech, i) => (
               <TechBadge key={`r1a-${i}`} name={tech.name} />
             ))}
-          </div>
-          <div className="marquee-inner inline-flex gap-4 animate-marquee" aria-hidden="true">
             {TECH_STACK_ROW1.map((tech, i) => (
-              <TechBadge key={`r1b-${i}`} name={tech.name} />
+              <TechBadge key={`r1b-${i}`} name={tech.name} clone />
             ))}
           </div>
         </div>
 
         {/* Row 2 ← */}
-        <div className="marquee-track overflow-hidden whitespace-nowrap">
-          <div className="marquee-inner inline-flex gap-4 animate-marquee-reverse">
+        <div className="marquee-track overflow-hidden">
+          <div className="marquee-inner flex gap-4 animate-marquee-reverse w-max">
             {TECH_STACK_ROW2.map((tech, i) => (
               <TechBadge key={`r2a-${i}`} name={tech.name} />
             ))}
-          </div>
-          <div className="marquee-inner inline-flex gap-4 animate-marquee-reverse" aria-hidden="true">
             {TECH_STACK_ROW2.map((tech, i) => (
-              <TechBadge key={`r2b-${i}`} name={tech.name} />
+              <TechBadge key={`r2b-${i}`} name={tech.name} clone />
             ))}
           </div>
         </div>

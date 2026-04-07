@@ -25,7 +25,7 @@ export function SectionHeading({
 
   return (
     <motion.div
-      className={cn("flex flex-col gap-3 mb-8 md:mb-12 lg:mb-16", alignClass, className)}
+      className={cn("flex flex-col gap-4 mb-10 md:mb-14 lg:mb-16", alignClass, className)}
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"

@@ -37,9 +37,9 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(233,69,96,0.3)] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-8 md:px-12 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Col 1 — Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1">
             <a href="/" className="inline-flex items-center gap-2 mb-4">
               <span className="text-xl font-bold font-heading">
                 <span className="text-[#E94560]">M</span>

@@ -146,7 +146,7 @@ export const PORTFOLIO = [
     metrics: [
       { value: 100, suffix: "%", label: "presencia web propia", prefix: "" },
       { value: 3, suffix: "s", label: "tiempo de carga", prefix: "<" },
-      { value: 0, suffix: "", label: "comisiones a terceros", prefix: "" },
+      { value: 100, suffix: "%", label: "reservas directas", prefix: "" },
     ],
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     imagePosition: "left" as const,
