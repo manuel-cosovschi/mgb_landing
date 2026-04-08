@@ -1,63 +1,29 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, MessageCircle } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
+'use client';
+import { motion } from 'framer-motion';
+import { CONTACT } from '@/lib/constants';
+import { WhatsAppIcon } from '@/components/ui/SocialIcons';
+import { MessageCircle } from 'lucide-react';
 
 export function FloatingButtons() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 500);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const waLink = `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
 
   return (
-    <div className="fixed z-40 flex flex-col items-center gap-3" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom, 1.25rem))", right: "max(1rem, env(safe-area-inset-right, 1rem))" }}>
-      {/* Scroll to top */}
-      <AnimatePresence>
-        {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.7, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.7, y: 10 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-[#0A0A1A] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#7A7A95] hover:text-[#EEEEF2] hover:border-[rgba(255,255,255,0.2)] hover:bg-[#10102A] transition-all shadow-card cursor-pointer"
-            aria-label="Volver arriba"
-          >
-            <ArrowUp size={16} />
-          </motion.button>
-        )}
-      </AnimatePresence>
-
-      {/* WhatsApp */}
-      <motion.a
-        href={waLink}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 2, duration: 0.5 }}
+      className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end"
+    >
+      <a
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
-        style={{ backgroundColor: "#25D366" }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Contactar por WhatsApp"
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        aria-label="WhatsApp"
+        className="group flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb558] text-white rounded-full shadow-lg shadow-[#25D366]/25 transition-all duration-200 pr-5 pl-4 py-3"
       >
-        {/* Pulse ring */}
-        <span
-          className="absolute inset-0 rounded-full animate-ping opacity-20"
-          style={{ backgroundColor: "#25D366" }}
-        />
-        <MessageCircle size={22} className="text-white relative z-10" />
-      </motion.a>
-    </div>
+        <WhatsAppIcon className="w-5 h-5" />
+        <span className="text-sm font-semibold hidden sm:block">WhatsApp</span>
+      </a>
+    </motion.div>
   );
 }

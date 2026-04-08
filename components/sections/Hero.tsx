@@ -1,132 +1,113 @@
-"use client";
+'use client';
+import { motion } from 'framer-motion';
+import { fadeUp, stagger, viewport } from '@/lib/animations';
+import { CONTACT } from '@/lib/constants';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
-import { fadeUp, staggerContainer } from "@/lib/animations";
-import { GlowEffect } from "@/components/ui/GlowEffect";
-
-const TECH_LOGOS = [
-  "Next.js", "React", "TypeScript", "Node.js", "OpenAI", "n8n", "Swift", "Vercel",
+const STATS = [
+  { value: 10, suffix: '+', label: 'Proyectos entregados' },
+  { value: 3, suffix: '', label: 'Países con clientes' },
+  { value: 100, suffix: '%', label: 'Satisfacción garantizada' },
 ];
-
-function scrollTo(id: string) {
-  document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-}
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
-      {/* Background layers */}
-      <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(233,69,96,0.07) 0%, rgba(189,147,249,0.04) 50%, transparent 70%)",
-        }}
-      />
-      <GlowEffect color="#E94560" size="xl" opacity={0.06} className="-top-40 left-1/2 -translate-x-1/2" />
-      <GlowEffect color="#BD93F9" size="lg" opacity={0.05} className="top-1/3 -left-32" />
-      <GlowEffect color="#8BE9FD" size="lg" opacity={0.04} className="top-1/3 -right-32" />
+    <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#ff3b5c]/10 blur-[120px]" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-[#a78bfa]/8 blur-[100px]" />
+      </div>
 
-      {/* Floating shapes — desktop only */}
-      <motion.div className="absolute top-24 left-[8%] w-20 h-20 rounded-full border border-[rgba(233,69,96,0.12)] hidden lg:block" animate={{ y: [0, -12, 0], rotate: [0, 45, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="absolute bottom-32 left-[12%] w-12 h-12 rounded-lg border border-[rgba(139,233,253,0.1)] hidden lg:block" animate={{ y: [0, 10, 0], rotate: [0, -30, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }} />
-      <motion.div className="absolute top-40 right-[10%] w-16 h-16 rounded-lg border border-[rgba(189,147,249,0.1)] hidden lg:block" animate={{ y: [0, -8, 0], rotate: [0, 20, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }} />
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 flex flex-col items-center text-center px-8 sm:px-12 max-w-5xl mx-auto w-full"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Badge */}
-        <motion.div variants={fadeUp} className="mb-5 sm:mb-7">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-gradient-animated text-[#EEEEF2]">
-            <Sparkles size={13} className="text-[#E94560]" />
-            Abiertos a nuevos proyectos
-          </span>
-        </motion.div>
-
-        {/* H1 — escala desde 28px en 375px hasta 72px en desktop */}
-        <motion.h1
-          className="text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-[1.1] tracking-tight mb-4 sm:mb-6"
-          variants={fadeUp}
-        >
-          Construimos el software
-          <br />
-          <span className="gradient-text">que tu negocio</span>
-          <br />
-          necesita
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          className="text-[#7A7A95] text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-7 sm:mb-9"
-          variants={fadeUp}
-        >
-          Somos un equipo de ingenieros y desarrolladores que creamos{" "}
-          <span className="text-[#EEEEF2]">aplicaciones web</span>,{" "}
-          <span className="text-[#EEEEF2]">bots de WhatsApp con IA</span>{" "}
-          y{" "}
-          <span className="text-[#EEEEF2]">automatizaciones a medida</span>{" "}
-          para PyMEs y emprendedores.
-        </motion.p>
-
-        {/* CTAs — full width en mobile */}
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 relative z-10">
         <motion.div
-          className="flex flex-col sm:flex-row items-center gap-3 mb-10 sm:mb-14"
-          variants={fadeUp}
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+          className="max-w-5xl"
         >
-          <motion.button
-            onClick={() => scrollTo("#contacto")}
-            className="btn-shimmer inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-semibold text-white bg-[#E94560] hover:bg-[#d63851] shadow-glow-sm hover:shadow-glow-md transition-all duration-200 cursor-pointer text-sm sm:text-base"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Contactanos
-            <ArrowRight size={16} />
-          </motion.button>
-          <motion.button
-            onClick={() => scrollTo("#portfolio")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-semibold text-[#EEEEF2] border border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-200 cursor-pointer text-sm sm:text-base"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Ver nuestro trabajo
-          </motion.button>
-        </motion.div>
+          {/* Badge */}
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ff3b5c] animate-pulse" />
+            <span className="text-xs font-mono text-[#8888a4] tracking-widest uppercase">Software factory · Mar del Plata</span>
+          </motion.div>
 
-        {/* Tech strip — menos items en mobile para evitar overflow */}
-        <motion.div className="flex flex-col items-center gap-3" variants={fadeUp}>
-          <p className="text-[#4A4A65] text-[10px] uppercase tracking-widest font-mono">
-            Tecnologías que dominamos
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {TECH_LOGOS.map((tech) => (
-              <span
-                key={tech}
-                className="text-[10px] sm:text-xs font-mono text-[#7A7A95] px-2.5 py-1 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:text-[#EEEEF2] transition-all"
-              >
-                {tech}
-              </span>
+          {/* Headline */}
+          <motion.h1
+            variants={fadeUp}
+            className="font-heading font-bold leading-[1.08] tracking-tight mb-6"
+            style={{ fontSize: 'clamp(2.8rem, 8vw, 7rem)' }}
+          >
+            Construimos
+            <br />
+            <span className="text-[#ff3b5c]">software</span> que
+            <br />
+            hace crecer
+            <br />
+            tu negocio.
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={fadeUp}
+            className="text-[#8888a4] text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
+          >
+            Somos un equipo de tres ingenieros apasionados. Creamos páginas web,
+            bots de WhatsApp, automatizaciones y apps móviles de calidad para
+            empresas y emprendedores en Argentina y el mundo.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-20">
+            <a
+              href={CONTACT.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors shadow-lg shadow-[#ff3b5c]/20"
+            >
+              Agendar llamada gratuita
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href="#portfolio"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 text-white font-medium text-base hover:bg-white/5 transition-colors"
+            >
+              Ver proyectos
+            </a>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            variants={fadeUp}
+            className="grid grid-cols-3 gap-8 pt-8 border-t border-white/6"
+          >
+            {STATS.map(({ value, suffix, label }) => (
+              <div key={label}>
+                <p className="font-heading font-bold text-3xl md:text-4xl text-white mb-1">
+                  <AnimatedCounter target={value} suffix={suffix} />
+                </p>
+                <p className="text-[#8888a4] text-sm leading-snug">{label}</p>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Scroll cue */}
+      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[#4A4A65]"
-        initial={{ opacity: 0, y: 8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
       >
-        <span className="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
-        <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-          <ChevronDown size={14} />
-        </motion.div>
+        <span className="text-[10px] font-mono text-[#55556a] tracking-widest uppercase">Scroll</span>
+        <motion.div
+          className="w-px h-8 bg-gradient-to-b from-[#55556a] to-transparent"
+          animate={{ scaleY: [1, 0.5, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </motion.div>
     </section>
   );

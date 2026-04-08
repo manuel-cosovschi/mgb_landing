@@ -1,58 +1,39 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'framer-motion';
 
 interface AnimatedCounterProps {
-  value: number;
-  prefix?: string;
+  target: number;
   suffix?: string;
+  prefix?: string;
   duration?: number;
   className?: string;
 }
 
-export function AnimatedCounter({
-  value,
-  prefix = "",
-  suffix = "",
-  duration = 1500,
-  className,
-}: AnimatedCounterProps) {
-  const [display, setDisplay] = useState(0);
+export function AnimatedCounter({ target, suffix = '', prefix = '', duration = 1800, className }: AnimatedCounterProps) {
+  const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const hasAnimated = useRef(false);
+  const started = useRef(false);
 
   useEffect(() => {
-    if (!inView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    // Respect reduced motion preference
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) {
-      setDisplay(value);
-      return;
-    }
-
+    if (!inView || started.current) return;
+    started.current = true;
     const start = performance.now();
-    const animate = (now: number) => {
+    const tick = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(eased * value));
-      if (progress < 1) requestAnimationFrame(animate);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+      else setCount(target);
     };
-    requestAnimationFrame(animate);
-  }, [inView, value, duration]);
+    requestAnimationFrame(tick);
+  }, [inView, target, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {prefix}
-      {display}
-      {suffix}
+      {prefix}{count}{suffix}
     </span>
   );
 }

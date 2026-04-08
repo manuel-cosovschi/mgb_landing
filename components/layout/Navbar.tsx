@@ -1,139 +1,132 @@
-"use client";
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CONTACT } from '@/lib/constants';
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+const NAV_LINKS = [
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#portfolio', label: 'Portfolio' },
+  { href: '#equipo', label: 'Equipo' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#faq', label: 'FAQ' },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  };
+  const handleNavClick = () => setOpen(false);
 
   return (
     <>
-      <motion.header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "glass-strong border-b border-[rgba(255,255,255,0.06)]"
-            : "bg-transparent"
-        )}
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-[#06060e]/90 backdrop-blur-xl border-b border-white/5' : ''
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-8 md:px-12 h-16 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="/"
-            className="flex items-center gap-2 group"
-            aria-label="MGB Software — Inicio"
-          >
-            <div className="relative">
-              <span className="text-xl font-bold font-heading tracking-tight">
-                <span className="text-[#E94560]">M</span>
-                <span className="text-[#EEEEF2]">GB</span>
-              </span>
-              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-[#E94560] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <span className="text-[#4A4A65] text-sm font-mono hidden sm:inline">
-              software
+          <Link href="/" className="flex items-center gap-2 group" onClick={handleNavClick}>
+            <span className="w-7 h-7 rounded-md bg-[#ff3b5c] flex items-center justify-center">
+              <span className="font-mono text-xs font-bold text-white leading-none">M</span>
             </span>
+            <span className="font-heading font-semibold text-sm tracking-tight text-white">
+              MGB <span className="text-[#8888a4]">Software</span>
+            </span>
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-sm text-[#8888a4] hover:text-white transition-colors duration-200"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <a
+            href={CONTACT.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ff3b5c] text-[#ff3b5c] text-sm font-medium hover:bg-[#ff3b5c] hover:text-white transition-all duration-200"
+          >
+            Hablemos
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-sm text-[#7A7A95] hover:text-[#EEEEF2] px-3 py-2 rounded-lg hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 cursor-pointer"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* CTA + hamburger */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => handleNavClick("#contacto")}
-              className="hidden md:inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg bg-[#E94560] text-white hover:bg-[#d63851] transition-all duration-200 shadow-glow-sm hover:shadow-glow-md btn-shimmer cursor-pointer"
-            >
-              Hablemos
-            </button>
-            <button
-              className="md:hidden p-2 rounded-lg text-[#7A7A95] hover:text-[#EEEEF2] hover:bg-[rgba(255,255,255,0.06)] transition-all"
-              onClick={() => setMobileOpen((v) => !v)}
-              aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
-            >
-              <motion.div
-                animate={{ rotate: mobileOpen ? 90 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </motion.div>
-            </button>
-          </div>
-        </div>
-      </motion.header>
-
-      {/* Mobile fullscreen menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 bg-[#050510] flex flex-col items-center justify-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-1 z-50 relative"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
           >
-            <nav className="flex flex-col items-center gap-2 w-full px-8">
-              {NAV_LINKS.map((link, i) => (
-                <motion.button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="w-full text-center text-2xl font-bold font-heading text-[#EEEEF2] hover:text-[#E94560] py-4 border-b border-[rgba(255,255,255,0.05)] transition-colors cursor-pointer"
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.07 + 0.1 }}
+            <motion.span
+              animate={open ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-0.5 bg-white origin-center transition-all"
+            />
+            <motion.span
+              animate={open ? { opacity: 0 } : { opacity: 1 }}
+              className="block w-5 h-0.5 bg-white"
+            />
+            <motion.span
+              animate={open ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-0.5 bg-white origin-center transition-all"
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 bg-[#06060e] flex flex-col px-8 pt-24 pb-12"
+          >
+            <nav className="flex flex-col gap-8 flex-1">
+              {NAV_LINKS.map(({ href, label }, i) => (
+                <motion.a
+                  key={href}
+                  href={href}
+                  onClick={handleNavClick}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * i, duration: 0.35 }}
+                  className="text-3xl font-heading font-semibold text-white hover:text-[#ff3b5c] transition-colors"
                 >
-                  {link.label}
-                </motion.button>
+                  {label}
+                </motion.a>
               ))}
-              <motion.button
-                onClick={() => handleNavClick("#contacto")}
-                className="mt-6 w-full text-center text-lg font-medium py-4 rounded-xl bg-[#E94560] text-white hover:bg-[#d63851] transition-all btn-shimmer cursor-pointer"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.07 + 0.1 }}
-              >
-                Hablemos
-              </motion.button>
             </nav>
+            <a
+              href={CONTACT.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleNavClick}
+              className="w-full py-4 rounded-2xl bg-[#ff3b5c] text-white font-semibold text-center text-lg"
+            >
+              Agendar llamada
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

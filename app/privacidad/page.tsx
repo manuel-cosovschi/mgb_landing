@@ -1,240 +1,117 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import Link from 'next/link';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 
-export const metadata: Metadata = {
-  title: "Política de Privacidad — MGB Software",
-  description:
-    "Política de privacidad de MGB Software. Cómo recopilamos, usamos y protegemos tus datos personales.",
+export const metadata = {
+  title: 'Política de Privacidad | MGB Software',
 };
 
 export default function PrivacidadPage() {
   return (
-    <div className="min-h-screen bg-[#050510] text-[#EEEEF2]">
-      {/* Header */}
-      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-6 sm:px-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-[#7A7A95] hover:text-[#EEEEF2] transition-colors text-sm"
-        >
-          ← Volver al inicio
-        </Link>
-      </header>
-
-      <main className="mx-auto w-full max-w-3xl px-6 sm:px-8 py-14 sm:py-20">
-        {/* Page header */}
-        <header className="mb-12">
-          <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-[#E94560]">
-            Legal
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight leading-tight mb-4">
+    <>
+      <Navbar />
+      <main className="pt-32 pb-24">
+        <div className="max-w-3xl mx-auto px-6 md:px-10">
+          <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Legal</p>
+          <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-4">
             Política de Privacidad
           </h1>
-          <p className="text-sm text-[#4A4A65]">
-            Última actualización: abril de 2025
-          </p>
-        </header>
+          <p className="text-[#8888a4] text-sm mb-12">Última actualización: abril 2025</p>
 
-        {/* Content */}
-        <div className="space-y-10 text-base leading-7 text-[#7A7A95]">
+          <div className="prose prose-invert prose-sm max-w-none space-y-8">
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">1. Información que recopilamos</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Recopilamos información que usted nos proporciona directamente a través de nuestro formulario de contacto:
+                nombre completo, dirección de correo electrónico y el mensaje enviado. No recopilamos información de pago
+                ni datos sensibles a través del sitio web.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              1. Responsable del tratamiento
-            </h2>
-            <p>
-              MGB Software (en adelante, "nosotros" o "MGB") es el responsable
-              del tratamiento de los datos personales recopilados a través de
-              este sitio web y sus formularios de contacto.
-            </p>
-            <p>
-              Podés contactarnos en cualquier momento a través de:{" "}
-              <a
-                href="mailto:mgbsoftwarefactory@gmail.com"
-                className="text-[#E94560] hover:underline"
-              >
-                mgbsoftwarefactory@gmail.com
-              </a>
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">2. Uso de la información</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Utilizamos la información recopilada exclusivamente para:
+              </p>
+              <ul className="list-disc list-inside text-[#8888a4] space-y-1 mt-2 ml-2">
+                <li>Responder a sus consultas y solicitudes de información</li>
+                <li>Enviar propuestas comerciales relacionadas con sus consultas</li>
+                <li>Mejorar nuestros servicios y la experiencia del usuario</li>
+              </ul>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              2. Datos que recopilamos
-            </h2>
-            <p>
-              Recopilamos únicamente los datos que vos mismo nos proporcionás a
-              través del formulario de contacto:
-            </p>
-            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
-              <li>Nombre completo</li>
-              <li>Dirección de correo electrónico</li>
-              <li>Número de WhatsApp / teléfono (opcional)</li>
-              <li>Nombre de empresa o negocio (opcional)</li>
-              <li>Servicio de interés y presupuesto estimado</li>
-              <li>Descripción del proyecto</li>
-            </ul>
-            <p>
-              No recopilamos datos de manera automática más allá de los logs
-              estándar del servidor (dirección IP, navegador, fecha/hora de
-              acceso) inherentes al funcionamiento de cualquier sitio web.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">3. Almacenamiento y seguridad</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Los mensajes enviados a través de nuestro formulario son procesados por Formspree (formspree.io), un
+                servicio de terceros que cumple con las normativas de protección de datos. No almacenamos sus datos
+                personales en servidores propios más allá del correo electrónico que recibimos en respuesta a su consulta.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              3. Finalidad del tratamiento
-            </h2>
-            <p>Usamos tus datos exclusivamente para:</p>
-            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
-              <li>Responder a tu consulta o solicitud de presupuesto</li>
-              <li>
-                Contactarte para agendar una reunión o dar seguimiento a tu
-                proyecto
-              </li>
-              <li>
-                Enviarte información relacionada con el servicio que consultaste
-              </li>
-            </ul>
-            <p>
-              No utilizamos tus datos para publicidad, marketing no solicitado
-              ni ningún fin distinto al contacto comercial directo relacionado
-              con tu consulta.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">4. Cookies y tecnologías de seguimiento</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Este sitio web no utiliza cookies de seguimiento ni herramientas de análisis de comportamiento (como
+                Google Analytics). No realizamos seguimiento de su actividad de navegación.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              4. Base legal
-            </h2>
-            <p>
-              El tratamiento de tus datos se basa en tu consentimiento explícito
-              al completar y enviar el formulario de contacto. Podés retirar ese
-              consentimiento en cualquier momento escribiéndonos a nuestro email.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">5. Compartición de datos con terceros</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                No vendemos, alquilamos ni compartimos su información personal con terceros con fines comerciales.
+                Únicamente compartimos datos con proveedores de servicios necesarios para operar nuestro sitio
+                (como Formspree para el formulario de contacto y Vercel para el alojamiento web).
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              5. Conservación de datos
-            </h2>
-            <p>
-              Conservamos tus datos mientras exista una relación comercial
-              activa o potencial. Si no avanzamos con ningún proyecto y no
-              tenemos comunicación por más de 12 meses, eliminamos tu
-              información de nuestros sistemas.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">6. Sus derechos</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Usted tiene derecho a acceder, rectificar o eliminar los datos personales que nos haya proporcionado.
+                Para ejercer cualquiera de estos derechos, puede contactarnos en{' '}
+                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#ff3b5c] hover:underline">
+                  mgbsoftwarefactory@gmail.com
+                </a>.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              6. Compartición de datos con terceros
-            </h2>
-            <p>
-              No vendemos, cedemos ni compartimos tus datos personales con
-              terceros con fines comerciales. Los datos enviados a través del
-              formulario son procesados por{" "}
-              <a
-                href="https://formspree.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#E94560] hover:underline"
-              >
-                Formspree
-              </a>
-              , un servicio de gestión de formularios que actúa como encargado
-              del tratamiento bajo sus propias políticas de privacidad.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">7. Menores de edad</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Nuestros servicios están dirigidos a empresas y adultos. No recopilamos conscientemente información de
+                menores de 18 años.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              7. Tus derechos (Ley 25.326)
-            </h2>
-            <p>
-              De acuerdo con la Ley N° 25.326 de Protección de los Datos
-              Personales (Argentina), tenés derecho a:
-            </p>
-            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
-              <li>
-                <span className="text-[#EEEEF2]">Acceder</span> a los datos
-                personales que tenemos de vos
-              </li>
-              <li>
-                <span className="text-[#EEEEF2]">Rectificar</span> datos
-                incorrectos o desactualizados
-              </li>
-              <li>
-                <span className="text-[#EEEEF2]">Suprimir</span> tus datos de
-                nuestros registros
-              </li>
-              <li>
-                <span className="text-[#EEEEF2]">Oponerte</span> al tratamiento
-                de tus datos
-              </li>
-            </ul>
-            <p>
-              Para ejercer cualquiera de estos derechos, escribinos a{" "}
-              <a
-                href="mailto:mgbsoftwarefactory@gmail.com"
-                className="text-[#E94560] hover:underline"
-              >
-                mgbsoftwarefactory@gmail.com
-              </a>{" "}
-              indicando tu nombre y la solicitud. Respondemos en un plazo máximo
-              de 10 días hábiles.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">8. Cambios a esta política</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Podemos actualizar esta Política de Privacidad periódicamente. Le notificaremos de cambios significativos
+                publicando la nueva política en esta página con la fecha de actualización revisada.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              8. Seguridad
-            </h2>
-            <p>
-              Implementamos medidas técnicas y organizativas razonables para
-              proteger tus datos contra acceso no autorizado, pérdida o
-              alteración. La transmisión de datos se realiza siempre mediante
-              conexiones cifradas (HTTPS).
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">9. Contacto</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Si tiene preguntas sobre esta política, puede contactarnos en{' '}
+                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#ff3b5c] hover:underline">
+                  mgbsoftwarefactory@gmail.com
+                </a>.
+              </p>
+            </section>
+          </div>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              9. Cambios en esta política
-            </h2>
-            <p>
-              Podemos actualizar esta política en cualquier momento. La fecha de
-              última actualización figura al comienzo del documento. El uso
-              continuado del sitio después de publicar cambios implica la
-              aceptación de la versión actualizada.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              10. Contacto
-            </h2>
-            <p>
-              Ante cualquier consulta relacionada con esta política o el
-              tratamiento de tus datos:{" "}
-              <a
-                href="mailto:mgbsoftwarefactory@gmail.com"
-                className="text-[#E94560] hover:underline"
-              >
-                mgbsoftwarefactory@gmail.com
-              </a>
-            </p>
-          </section>
-        </div>
-
-        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.05)]">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors"
-          >
-            ← Volver al inicio
-          </Link>
+          <div className="mt-12 pt-8 border-t border-white/6">
+            <Link href="/" className="text-[#8888a4] text-sm hover:text-white transition-colors">
+              ← Volver al inicio
+            </Link>
+          </div>
         </div>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

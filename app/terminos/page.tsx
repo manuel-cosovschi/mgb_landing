@@ -1,257 +1,130 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import Link from 'next/link';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 
-export const metadata: Metadata = {
-  title: "Términos y Condiciones — MGB Software",
-  description:
-    "Términos y condiciones de contratación de MGB Software. Alcance de servicios, forma de pago, entregas y garantías.",
+export const metadata = {
+  title: 'Términos y Condiciones | MGB Software',
 };
 
 export default function TerminosPage() {
   return (
-    <div className="min-h-screen bg-[#050510] text-[#EEEEF2]">
-      {/* Header */}
-      <header className="border-b border-[rgba(255,255,255,0.05)] py-5 px-6 sm:px-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-[#7A7A95] hover:text-[#EEEEF2] transition-colors text-sm"
-        >
-          ← Volver al inicio
-        </Link>
-      </header>
-
-      <main className="mx-auto w-full max-w-3xl px-6 sm:px-8 py-14 sm:py-20">
-        {/* Page header */}
-        <header className="mb-12">
-          <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-[#E94560]">
-            Legal
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight leading-tight mb-4">
+    <>
+      <Navbar />
+      <main className="pt-32 pb-24">
+        <div className="max-w-3xl mx-auto px-6 md:px-10">
+          <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Legal</p>
+          <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-4">
             Términos y Condiciones
           </h1>
-          <p className="text-sm text-[#4A4A65]">
-            Última actualización: abril de 2025
-          </p>
-        </header>
+          <p className="text-[#8888a4] text-sm mb-12">Última actualización: abril 2025</p>
 
-        {/* Content */}
-        <div className="space-y-10 text-base leading-7 text-[#7A7A95]">
+          <div className="space-y-8">
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">1. Aceptación de los términos</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Al contratar los servicios de MGB Software Factory, usted acepta estar vinculado por estos Términos y
+                Condiciones. Si no está de acuerdo con alguno de estos términos, no utilice nuestros servicios.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              1. Identificación
-            </h2>
-            <p>
-              Estos Términos y Condiciones regulan la relación entre MGB
-              Software (en adelante, "MGB" o "el proveedor") y el cliente que
-              contrata nuestros servicios de desarrollo de software, diseño web,
-              automatizaciones y servicios relacionados.
-            </p>
-            <p>
-              Contacto:{" "}
-              <a
-                href="mailto:mgbsoftwarefactory@gmail.com"
-                className="text-[#E94560] hover:underline"
-              >
-                mgbsoftwarefactory@gmail.com
-              </a>
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">2. Descripción de servicios</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                MGB Software Factory ofrece servicios de desarrollo de software a medida, incluyendo pero no limitado a:
+                aplicaciones web, bots de WhatsApp con inteligencia artificial, automatizaciones, aplicaciones móviles,
+                landing pages y consultoría técnica. El alcance específico de cada proyecto se define en una propuesta
+                comercial firmada por ambas partes.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              2. Alcance de los servicios
-            </h2>
-            <p>
-              MGB ofrece servicios de desarrollo de software a medida, que
-              incluyen pero no se limitan a: aplicaciones web, sitios web,
-              aplicaciones móviles, bots de WhatsApp con IA, automatizaciones
-              de procesos y landing pages.
-            </p>
-            <p>
-              El alcance específico, las funcionalidades, el plazo de entrega y
-              el precio de cada proyecto quedan definidos en una propuesta
-              escrita y en el contrato firmado entre ambas partes, que
-              prevalece sobre cualquier comunicación informal previa.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">3. Proceso de contratación y pagos</h2>
+              <p className="text-[#8888a4] leading-relaxed mb-3">
+                Para iniciar cualquier proyecto, se firma un contrato que define alcance, plazos y precio. La estructura
+                de pago es la siguiente:
+              </p>
+              <ul className="list-disc list-inside text-[#8888a4] space-y-2 ml-2">
+                <li><strong className="text-white">50% al inicio:</strong> Se abona al firmar el contrato. Este pago habilita el comienzo del desarrollo.</li>
+                <li><strong className="text-white">50% al finalizar:</strong> Se abona contra entrega del producto terminado, junto con el código fuente y los accesos.</li>
+              </ul>
+              <p className="text-[#8888a4] leading-relaxed mt-3">
+                No se realizan reembolsos del anticipo una vez iniciado el desarrollo. Cambios fuera del alcance acordado
+                pueden generar costos adicionales, que serán presupuestados y acordados antes de ejecutarse.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              3. Forma de pago
-            </h2>
-            <p>
-              El pago de cualquier proyecto se estructura de la siguiente manera:
-            </p>
-            <ul className="space-y-3 pl-5 list-disc marker:text-[#E94560]">
-              <li>
-                <span className="text-[#EEEEF2] font-medium">50% al firmar el contrato:</span>{" "}
-                este pago da inicio formal al proyecto y reserva la capacidad
-                del equipo. No se inicia ningún trabajo sin la recepción de
-                este primer pago.
-              </li>
-              <li>
-                <span className="text-[#EEEEF2] font-medium">50% al entregar el producto final:</span>{" "}
-                este pago se realiza al momento de la entrega del producto
-                terminado y aprobado por el cliente.
-              </li>
-            </ul>
-            <p>
-              Los medios de pago aceptados (transferencia bancaria u otros) se
-              especifican en el contrato de cada proyecto.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">4. Plazos de entrega</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Los plazos de entrega se estiman en la propuesta comercial y dependen de la complejidad del proyecto y
+                la disponibilidad del cliente para revisiones y feedback. Los plazos pueden extenderse si el cliente no
+                provee materiales, accesos o feedback en tiempo y forma.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              4. Proceso de desarrollo y entregas
-            </h2>
-            <p>
-              El desarrollo se realiza en sprints semanales con demos periódicas
-              para el cliente. El cliente se compromete a brindar feedback en
-              los plazos acordados. Demoras en la revisión y aprobación por
-              parte del cliente pueden extender el plazo de entrega sin
-              responsabilidad para MGB.
-            </p>
-            <p>
-              Cualquier modificación del alcance original durante el desarrollo
-              (nuevas funcionalidades, cambios de diseño, etc.) deberá acordarse
-              por escrito y puede implicar un ajuste de precio y/o plazo.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">5. Soporte post-entrega</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Incluimos 30 días de soporte técnico post-entrega. Durante este período, corregimos bugs y realizamos
+                ajustes menores sin costo adicional. Este soporte cubre errores de funcionamiento, no implica garantía
+                de devolución ni incluye nuevas funcionalidades o cambios de alcance.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              5. Período de mantenimiento post-entrega
-            </h2>
-            <p>
-              Todo proyecto incluye{" "}
-              <span className="text-[#EEEEF2] font-medium">
-                30 días de mantenimiento post-entrega
-              </span>{" "}
-              sin costo adicional, que comprenden:
-            </p>
-            <ul className="space-y-2 pl-5 list-disc marker:text-[#E94560]">
-              <li>
-                Corrección de bugs o errores de funcionamiento detectados en el
-                producto entregado
-              </li>
-              <li>
-                Ajustes menores que no impliquen nuevas funcionalidades o
-                cambios de alcance
-              </li>
-            </ul>
-            <p className="text-[#EEEEF2] bg-[rgba(233,69,96,0.06)] border border-[rgba(233,69,96,0.15)] rounded-xl px-4 py-3 leading-7">
-              Este período de mantenimiento <strong>no constituye una garantía
-              de devolución de dinero</strong>. Una vez iniciado el proyecto y
-              desembolsado el primer pago, no se realizan reembolsos bajo ningún
-              concepto, salvo incumplimiento grave por parte de MGB demostrable
-              por escrito.
-            </p>
-            <p>
-              Al finalizar los 30 días, el cliente puede contratar un plan de
-              mantenimiento mensual para mantener el producto actualizado y con
-              soporte continuo.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">6. Propiedad del código y entregables</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Una vez completado el pago total, el cliente recibe la propiedad completa del código fuente, documentación
+                y todos los activos del proyecto. MGB Software Factory retiene el derecho de mencionar el proyecto en su
+                portfolio, salvo acuerdo de confidencialidad explícito.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              6. Propiedad intelectual
-            </h2>
-            <p>
-              Una vez recibido el pago total del proyecto, el cliente adquiere
-              la propiedad plena del código fuente, diseños y todos los activos
-              digitales desarrollados específicamente para su proyecto.
-            </p>
-            <p>
-              MGB se reserva el derecho de utilizar el proyecto como caso de
-              estudio en su portfolio, salvo que el cliente solicite expresamente
-              lo contrario por escrito.
-            </p>
-            <p>
-              Las librerías, frameworks y herramientas de terceros utilizadas en
-              el desarrollo están sujetas a sus propias licencias, que son
-              responsabilidad del cliente conocer y respetar en el uso posterior
-              del producto.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">7. Confidencialidad</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Toda información sensible del negocio del cliente compartida durante el proyecto será tratada con
+                estricta confidencialidad. Podemos firmar un acuerdo de confidencialidad (NDA) formal si el cliente lo
+                requiere.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              7. Confidencialidad
-            </h2>
-            <p>
-              MGB se compromete a mantener la confidencialidad de toda la
-              información sensible del cliente (datos de negocio, estrategias,
-              información de usuarios, etc.) y no la compartirá con terceros
-              salvo requerimiento legal o acuerdo expreso del cliente.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">8. Limitación de responsabilidad</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                MGB Software Factory no será responsable por pérdidas indirectas, incidentales o consecuentes derivadas
+                del uso de los productos entregados. Nuestra responsabilidad máxima estará limitada al monto total
+                abonado por el proyecto en cuestión.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              8. Limitación de responsabilidad
-            </h2>
-            <p>
-              MGB no se hace responsable por pérdidas económicas indirectas,
-              lucro cesante ni daños consecuentes derivados del uso o
-              imposibilidad de uso del software entregado. La responsabilidad
-              máxima de MGB ante cualquier reclamo se limita al monto
-              efectivamente pagado por el cliente en el proyecto en cuestión.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">9. Ley aplicable</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Estos términos se rigen por las leyes de la República Argentina. Cualquier disputa se resolverá en los
+                tribunales competentes de la ciudad de Mar del Plata, Provincia de Buenos Aires.
+              </p>
+            </section>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              9. Jurisdicción
-            </h2>
-            <p>
-              Estos términos se rigen por la legislación de la República
-              Argentina. Cualquier disputa será sometida a los tribunales
-              ordinarios de la ciudad de Mar del Plata, provincia de Buenos
-              Aires, con renuncia expresa a cualquier otro fuero.
-            </p>
-          </section>
+            <section>
+              <h2 className="font-heading font-semibold text-xl text-white mb-3">10. Contacto</h2>
+              <p className="text-[#8888a4] leading-relaxed">
+                Para cualquier consulta sobre estos términos, contáctenos en{' '}
+                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#ff3b5c] hover:underline">
+                  mgbsoftwarefactory@gmail.com
+                </a>.
+              </p>
+            </section>
+          </div>
 
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              10. Modificaciones
-            </h2>
-            <p>
-              MGB se reserva el derecho de actualizar estos términos. Los
-              proyectos en curso se rigen por la versión vigente al momento de
-              la firma del contrato. La versión actualizada se aplica a nuevos
-              contratos a partir de su publicación.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-xl font-semibold font-heading text-[#EEEEF2]">
-              11. Contacto
-            </h2>
-            <p>
-              Para consultas sobre estos términos o la contratación de
-              servicios:{" "}
-              <a
-                href="mailto:mgbsoftwarefactory@gmail.com"
-                className="text-[#E94560] hover:underline"
-              >
-                mgbsoftwarefactory@gmail.com
-              </a>
-            </p>
-          </section>
-        </div>
-
-        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.05)]">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#7A7A95] hover:text-[#EEEEF2] transition-colors"
-          >
-            ← Volver al inicio
-          </Link>
+          <div className="mt-12 pt-8 border-t border-white/6">
+            <Link href="/" className="text-[#8888a4] text-sm hover:text-white transition-colors">
+              ← Volver al inicio
+            </Link>
+          </div>
         </div>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

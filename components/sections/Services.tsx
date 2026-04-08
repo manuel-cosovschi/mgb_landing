@@ -1,136 +1,69 @@
-"use client";
+'use client';
+import { motion } from 'framer-motion';
+import { Monitor, MessageCircle, Zap, Smartphone, Globe, Shield } from 'lucide-react';
+import { fadeUp, stagger, viewport } from '@/lib/animations';
+import { SERVICES } from '@/lib/constants';
 
-import { motion } from "framer-motion";
-import {
-  Monitor,
-  MessageCircle,
-  Zap,
-  Smartphone,
-  Globe,
-  Shield,
-  LucideIcon,
-} from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { staggerContainer, fadeUp, viewportConfig } from "@/lib/animations";
-import { SERVICES } from "@/lib/constants";
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Monitor,
-  MessageCircle,
-  Zap,
-  Smartphone,
-  Globe,
-  Shield,
+const ICON_MAP: Record<string, React.ElementType> = {
+  Monitor, MessageCircle, Zap, Smartphone, Globe, Shield,
 };
 
 export function Services() {
   return (
-    <section
-      id="servicios"
-      className="relative section-padding overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse 100% 50% at 50% 0%, rgba(10,10,26,0.8) 0%, transparent 70%), #050510",
-      }}
-    >
-      {/* Subtle top separator */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.06)] to-transparent" />
+    <section id="servicios" className="py-28 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={viewport}>
+          <motion.div variants={fadeUp} className="mb-16 md:mb-20 max-w-xl">
+            <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Servicios</p>
+            <h2 className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white mb-4">
+              Lo que hacemos<span className="text-[#ff3b5c]">.</span>
+            </h2>
+            <p className="text-[#8888a4] text-lg leading-relaxed">
+              Desde una landing page hasta sistemas complejos. Siempre con código limpio y resultados reales.
+            </p>
+          </motion.div>
 
-      <div className="max-w-7xl mx-auto px-8 md:px-12">
-        <SectionHeading
-          label="Servicios"
-          title="Lo que"
-          titleHighlight="hacemos"
-          subtitle="Soluciones digitales de punta a punta para tu negocio. Cada servicio diseñado para generar resultados reales."
-        />
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          {SERVICES.map((service) => {
-            const Icon = ICON_MAP[service.icon];
-            return (
-              <ServiceCard key={service.id} service={service} Icon={Icon} />
-            );
-          })}
+          <motion.div
+            variants={stagger}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5"
+          >
+            {SERVICES.map((service, i) => {
+              const Icon = ICON_MAP[service.icon] ?? Monitor;
+              return (
+                <motion.div
+                  key={service.title}
+                  variants={fadeUp}
+                  className="group bg-[#0c0c18] p-8 hover:bg-[#111122] transition-colors duration-300 relative"
+                >
+                  <span className="absolute top-6 right-8 font-mono text-xs text-[#55556a]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                    style={{ backgroundColor: `${service.color}18`, color: service.color }}
+                  >
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg text-white mb-3 group-hover:text-[#ff3b5c] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#8888a4] text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="px-2 py-0.5 rounded-full text-xs font-mono bg-white/5 text-[#55556a]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[#ff3b5c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-interface ServiceCardProps {
-  service: (typeof SERVICES)[number];
-  Icon: LucideIcon;
-}
-
-function ServiceCard({ service, Icon }: ServiceCardProps) {
-  return (
-    <motion.div
-      className="group relative bg-[#0A0A1A] rounded-xl border border-[rgba(255,255,255,0.05)] p-6 sm:p-7 overflow-hidden cursor-default"
-      variants={fadeUp}
-      whileHover={{
-        scale: 1.02,
-        y: -4,
-        borderColor: "rgba(255,255,255,0.1)",
-        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-      }}
-      style={{
-        boxShadow: "0 0 0 1px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.4)",
-      }}
-    >
-      {/* Background glow on hover */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-xl"
-        style={{
-          background: `radial-gradient(ellipse 60% 50% at 30% 30%, ${service.accentColor}0a 0%, transparent 70%)`,
-        }}
-      />
-
-      {/* Icon */}
-      <div className="relative mb-5">
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center"
-          style={{ background: `${service.accentColor}15` }}
-        >
-          {Icon && (
-            <Icon
-              size={22}
-              className="transition-all duration-300"
-              style={{ color: service.accentColor }}
-            />
-          )}
-        </div>
-        {/* Icon glow */}
-        <div
-          className="absolute inset-0 w-12 h-12 rounded-xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none"
-          style={{ background: service.accentColor }}
-        />
-      </div>
-
-      {/* Content */}
-      <h3 className="text-base font-semibold font-heading text-[#EEEEF2] mb-2 leading-snug">
-        {service.title}
-      </h3>
-      <p className="text-[#7A7A95] text-sm leading-relaxed mb-5">
-        {service.description}
-      </p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1.5">
-        {service.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-xs font-mono text-[#4A4A65] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] px-2 py-0.5 rounded"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </motion.div>
   );
 }
