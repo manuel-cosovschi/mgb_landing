@@ -31,12 +31,12 @@ export function Team() {
                 className="group rounded-2xl border border-white/6 bg-[#0c0c18] overflow-hidden hover:border-white/12 transition-colors"
               >
                 {/* Photo area */}
-                <div className="relative h-64 overflow-hidden bg-[#111122]">
+                <div className="relative h-80 overflow-hidden bg-[#111122]">
                   <Image
                     src={member.photo}
-                    alt={member.name}
+                    alt={`Foto de ${member.name}, ${member.role}`}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className={`object-cover object-[center_10%] group-hover:scale-105 transition-transform duration-700${member.id === 'manuel' ? ' [mix-blend-mode:multiply]' : ''}`}
                     unoptimized
                   />
                   {/* Gradient overlay */}

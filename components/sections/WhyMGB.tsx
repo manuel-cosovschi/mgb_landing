@@ -33,14 +33,16 @@ export function WhyMGB() {
                   <motion.div
                     key={item.title}
                     variants={fadeUp}
-                    className="p-6 rounded-2xl border border-white/6 bg-[#06060e] hover:border-white/12 transition-colors group"
+                    className="p-6 rounded-2xl border border-white/6 bg-[#06060e] hover:border-white/12 hover:bg-[#0c0c18]/80 transition-colors group cursor-default"
                   >
                     <div className="w-9 h-9 rounded-lg bg-[#ff3b5c]/10 flex items-center justify-center mb-4 text-[#ff3b5c]">
                       <Icon size={18} />
                     </div>
                     <h3 className="font-heading font-semibold text-base text-white mb-2">{item.title}</h3>
                     <p className="text-[#8888a4] text-sm leading-relaxed mb-3">{item.description}</p>
-                    <span className="font-mono text-xs text-[#ff3b5c]">{item.stat}</span>
+                    <div className="border-t border-white/6 pt-3 mt-1">
+                      <span className="font-mono text-sm font-semibold text-[#ff3b5c]">{item.stat}</span>
+                    </div>
                   </motion.div>
                 );
               })}

@@ -104,7 +104,7 @@ export function Contact() {
                     <input
                       {...register('name')}
                       placeholder="Tu nombre"
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:border-[#ff3b5c]/50 transition-colors"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors"
                     />
                     {errors.name && <p className="text-[#ff3b5c] text-xs mt-1">{errors.name.message}</p>}
                   </div>
@@ -116,7 +116,7 @@ export function Contact() {
                       {...register('email')}
                       type="email"
                       placeholder="tu@email.com"
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:border-[#ff3b5c]/50 transition-colors"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors"
                     />
                     {errors.email && <p className="text-[#ff3b5c] text-xs mt-1">{errors.email.message}</p>}
                   </div>
@@ -128,7 +128,7 @@ export function Contact() {
                       <select
                         {...register('service')}
                         defaultValue=""
-                        className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#ff3b5c]/50 transition-colors appearance-none cursor-pointer"
+                        className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors appearance-none cursor-pointer"
                       >
                         <option value="" disabled className="text-[#55556a]">¿Qué necesitás?</option>
                         {SERVICES_OPTIONS.map((s) => (
@@ -151,7 +151,7 @@ export function Contact() {
                       {...register('message')}
                       rows={4}
                       placeholder="Contanos tu idea o proyecto..."
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:border-[#ff3b5c]/50 transition-colors resize-none"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors resize-none"
                     />
                     {errors.message && <p className="text-[#ff3b5c] text-xs mt-1">{errors.message.message}</p>}
                   </div>
@@ -159,9 +159,17 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full py-3.5 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
                   >
-                    {loading ? 'Enviando...' : 'Enviar mensaje'}
+                    {loading ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Enviando...
+                      </>
+                    ) : 'Enviar mensaje'}
                   </button>
                 </form>
               )}

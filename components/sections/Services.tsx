@@ -33,13 +33,13 @@ export function Services() {
                 <motion.div
                   key={service.title}
                   variants={fadeUp}
-                  className="group bg-[#0c0c18] p-8 hover:bg-[#111122] transition-colors duration-300 relative"
+                  className="group bg-[#0c0c18] p-8 hover:bg-[#111122] transition-colors duration-300 relative cursor-pointer"
                 >
                   <span className="absolute top-6 right-8 font-mono text-xs text-[#55556a]">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 group-hover:shadow-[0_0_12px_currentColor] transition-shadow duration-300"
                     style={{ backgroundColor: `${service.color}18`, color: service.color }}
                   >
                     <Icon size={20} />

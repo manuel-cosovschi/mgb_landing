@@ -28,9 +28,9 @@ export function Portfolio() {
               <button
                 key={p.id}
                 onClick={() => setActive(i)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
                   active === i
-                    ? 'bg-[#ff3b5c] text-white'
+                    ? 'bg-[#ff3b5c] text-white shadow-[0_0_16px_#ff3b5c40]'
                     : 'border border-white/10 text-[#8888a4] hover:border-white/20 hover:text-white'
                 }`}
               >

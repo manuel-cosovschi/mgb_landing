@@ -32,11 +32,11 @@ export function Process() {
                   <motion.div
                     key={step.id}
                     variants={fadeUp}
-                    className="relative flex gap-6 sm:gap-8"
+                    className="relative flex gap-6 sm:gap-8 group"
                   >
                     {/* Step dot / icon */}
                     <div className="flex-none flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-[#06060e] border border-[#ff3b5c]/40 flex items-center justify-center text-[#ff3b5c] z-10 relative">
+                      <div className="w-10 h-10 rounded-full bg-[#06060e] border border-[#ff3b5c]/40 flex items-center justify-center text-[#ff3b5c] z-10 relative group-hover:ring-2 group-hover:ring-[#ff3b5c]/30 group-hover:ring-offset-2 group-hover:ring-offset-[#0c0c18] transition-all duration-300">
                         <Icon size={16} />
                       </div>
                     </div>

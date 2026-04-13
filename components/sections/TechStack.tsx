@@ -34,7 +34,8 @@ export function TechStack() {
             Stack
           </motion.p>
           <motion.h2 variants={fadeUp} className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white">
-            Tecnologías que usamos<span className="text-[#ff3b5c]">.</span>
+            Usamos las herramientas de IA<br />
+            <span className="text-[#ff3b5c]">más avanzadas del mercado</span><span className="text-[#ff3b5c]">.</span>
           </motion.h2>
         </motion.div>
       </div>

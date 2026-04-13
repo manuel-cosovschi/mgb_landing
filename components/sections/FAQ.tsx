@@ -35,12 +35,12 @@ export function FAQ() {
                     key={item.id}
                     variants={fadeUp}
                     className={`rounded-xl border transition-colors duration-200 ${
-                      isOpen ? 'border-[#ff3b5c]/30 bg-[#ff3b5c]/5' : 'border-white/6 bg-[#06060e]'
+                      isOpen ? 'border-[#ff3b5c]/30 bg-[#ff3b5c]/8' : 'border-white/6 bg-[#06060e]'
                     }`}
                   >
                     <button
                       onClick={() => setOpen(isOpen ? null : item.id)}
-                      className="w-full flex items-center justify-between gap-4 p-5 text-left"
+                      className="w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer"
                     >
                       <span className="font-heading font-medium text-base text-white">{item.q}</span>
                       <motion.div

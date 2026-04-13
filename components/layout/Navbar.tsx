@@ -54,7 +54,7 @@ export function Navbar() {
               <a
                 key={href}
                 href={href}
-                className="text-sm text-[#8888a4] hover:text-white transition-colors duration-200"
+                className="text-sm text-[#8888a4] hover:text-white transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#ff3b5c] after:transition-all hover:after:w-full"
               >
                 {label}
               </a>
@@ -66,7 +66,7 @@ export function Navbar() {
             href={CONTACT.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ff3b5c] text-[#ff3b5c] text-sm font-medium hover:bg-[#ff3b5c] hover:text-white transition-all duration-200"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ff3b5c] text-[#ff3b5c] text-sm font-medium hover:bg-[#ff3b5c] hover:text-white hover:shadow-[0_0_20px_#ff3b5c30] transition-all duration-200"
           >
             Hablemos
           </a>

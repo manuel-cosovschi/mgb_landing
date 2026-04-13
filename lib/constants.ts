@@ -83,6 +83,21 @@ export const PORTFOLIO = [
     tags: ["Swift", "iOS", "Node.js", "PostgreSQL"],
   },
   {
+    id: "cosov-pedidos",
+    name: "COSOV. Pedidos",
+    client: "Cosov — Pastelería artesanal",
+    category: "Aplicación Web",
+    color: "#f59e0b",
+    problem: "La gestión de pedidos con 48h de anticipación se hacía por WhatsApp y Excel, sin control de stock ni visibilidad del negocio.",
+    solution: "Sistema web completo con catálogo para el cliente, panel de admin, tracking de pedidos por código y módulo de stock con trazabilidad total.",
+    metrics: [
+      { value: 48, suffix: "h", prefix: "", label: "anticipación mínima de pedidos" },
+      { value: 100, suffix: "%", prefix: "", label: "pedidos gestionados digitalmente" },
+      { value: 0, suffix: "", prefix: "", label: "Excel en el proceso" },
+    ],
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Resend", "Vercel"],
+  },
+  {
     id: "pitch",
     name: "Pitch Interactivo",
     client: "Proyecto interno",
@@ -125,8 +140,8 @@ export const TEAM: TeamMember[] = [
   { id: "bruno", name: "Bruno Nicolás Romano", role: "COO & Backend Lead", bio: "Le doy estructura y escalabilidad a cada proyecto. Me enfoco en bases sólidas de código y en asegurar la calidad de cada entrega.", skills: ["Java", "Python", "PostgreSQL", "Docker", "AWS", "CI/CD"], initials: "BR", photo: "/bruno.png", linkedin: "https://www.linkedin.com/in/brunoromano22", github: "https://github.com/romanobrunonicolas-netizen", color: "#a78bfa" },
 ];
 
-export const TECH_ROW_1 = ["Next.js", "React", "TypeScript", "Node.js", "Python", "Swift", "PostgreSQL", "MongoDB"];
-export const TECH_ROW_2 = ["Tailwind CSS", "Prisma", "Supabase", "Vercel", "n8n", "OpenAI", "Docker", "GitHub", "Figma"];
+export const TECH_ROW_1 = ["Next.js", "React", "TypeScript", "Node.js", "Python", "Swift", "PostgreSQL", "MongoDB", "GPT-4o", "Claude API", "Gemini"];
+export const TECH_ROW_2 = ["Tailwind CSS", "Supabase", "Vercel", "n8n", "Whisper", "LangChain", "Cursor", "v0", "Docker", "GitHub", "Figma", "Resend"];
 
 export const FAQ = [
   { id: "cost", q: "¿Cuánto cuesta un proyecto?", a: "Depende del alcance. Una landing puede arrancar desde USD $300 y un sistema completo de $3.000 a $15.000+. Siempre damos presupuesto cerrado antes de empezar." },

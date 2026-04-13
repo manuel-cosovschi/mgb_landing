@@ -29,7 +29,7 @@ export function Hero() {
           {/* Badge */}
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff3b5c] animate-pulse" />
-            <span className="text-xs font-mono text-[#8888a4] tracking-widest uppercase">Software factory · Mar del Plata</span>
+            <span className="text-xs font-mono text-[#8888a4] tracking-widest uppercase">Software factory · Mar del Plata, Argentina</span>
           </motion.div>
 
           {/* Headline */}
