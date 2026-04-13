@@ -36,11 +36,15 @@ export function Team() {
                     src={member.photo}
                     alt={`Foto de ${member.name}, ${member.role}`}
                     fill
-                    className={`object-cover object-[center_10%] group-hover:scale-105 transition-transform duration-700${member.id === 'manuel' ? ' [mix-blend-mode:multiply]' : ''}`}
+                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
+                      member.id === 'manuel'
+                        ? 'object-center scale-110'
+                        : 'object-[center_10%]'
+                    }`}
                     unoptimized
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c18] via-transparent to-transparent" />
+                  {/* Subtle bottom fade only — does NOT cover the face */}
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0c0c18] to-transparent" />
 
                   {/* Color accent tag */}
                   <div

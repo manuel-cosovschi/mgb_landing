@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { fadeUp, viewport } from '@/lib/animations';
+import { fadeUp, stagger, viewport } from '@/lib/animations';
 import { TECH_ROW_1, TECH_ROW_2 } from '@/lib/constants';
 
 function MarqueeRow({ items, reverse = false }: { items: string[]; reverse?: boolean }) {
@@ -29,14 +29,17 @@ export function TechStack() {
   return (
     <section className="py-28 md:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10 mb-12">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewport}>
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={viewport}>
           <motion.p variants={fadeUp} className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">
-            Stack
+            Stack & herramientas
           </motion.p>
-          <motion.h2 variants={fadeUp} className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white">
+          <motion.h2 variants={fadeUp} className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white mb-4">
             Usamos las herramientas de IA<br />
-            <span className="text-[#ff3b5c]">más avanzadas del mercado</span><span className="text-[#ff3b5c]">.</span>
+            <span className="text-[#ff3b5c]">más avanzadas del mercado.</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-[#8888a4] text-lg max-w-xl leading-relaxed">
+            GPT-4o, Claude, Whisper, LangChain — integramos los últimos modelos en productos reales, no solo como experimento.
+          </motion.p>
         </motion.div>
       </div>
 
