@@ -36,10 +36,10 @@ export function Team() {
                     src={member.photo}
                     alt={`Foto de ${member.name}, ${member.role}`}
                     fill
-                    className={`object-cover group-hover:scale-105 transition-transform duration-700 ${
+                    className={`object-cover transition-transform duration-700 ${
                       member.id === 'manuel'
-                        ? 'object-center scale-110'
-                        : 'object-[center_10%]'
+                        ? 'object-center scale-[1.55] group-hover:scale-[1.6]'
+                        : 'object-[center_10%] group-hover:scale-105'
                     }`}
                     unoptimized
                   />
