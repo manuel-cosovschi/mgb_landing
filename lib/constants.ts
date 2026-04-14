@@ -58,6 +58,7 @@ export const PORTFOLIO = [
     client: "Las Cañas Mar de Cobo",
     category: "Desarrollo Web",
     color: "#a78bfa",
+    url: "https://lascaniasmardecobo.com",
     problem: "El complejo no tenía presencia web propia y dependía de plataformas de terceros para captar reservas, perdiendo visibilidad y margen.",
     solution: "Diseñamos lascaniasmardecobo.com, sitio moderno con galería, info del complejo y contacto directo. SEO optimizado y carga ultrarrápida.",
     metrics: [

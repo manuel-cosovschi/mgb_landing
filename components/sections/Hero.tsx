@@ -81,14 +81,14 @@ export function Hero() {
           {/* Stats */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-3 gap-8 pt-8 border-t border-white/6"
+            className="grid grid-cols-3 gap-4 md:gap-8 pt-8 border-t border-white/6"
           >
             {STATS.map(({ value, suffix, label }) => (
               <div key={label}>
-                <p className="font-heading font-bold text-3xl md:text-4xl text-white mb-1">
+                <p className="font-heading font-bold text-2xl md:text-4xl text-white mb-1">
                   <AnimatedCounter target={value} suffix={suffix} />
                 </p>
-                <p className="text-[#8888a4] text-sm leading-snug">{label}</p>
+                <p className="text-[#8888a4] text-xs md:text-sm leading-snug">{label}</p>
               </div>
             ))}
           </motion.div>

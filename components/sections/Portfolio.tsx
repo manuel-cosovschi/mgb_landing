@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import { fadeUp, stagger, viewport } from '@/lib/animations';
 import { PORTFOLIO } from '@/lib/constants';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
-import { ExternalLink } from 'lucide-react';
 
 export function Portfolio() {
   const [active, setActive] = useState(0);
@@ -62,6 +62,17 @@ export function Portfolio() {
                     <h3 className="font-heading font-bold text-2xl text-white">{project.name}</h3>
                     <p className="text-[#8888a4] text-sm mt-1">{project.client}</p>
                   </div>
+                  {'url' in project && project.url && (
+                    <a
+                      href={project.url as string}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-none flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 text-[#8888a4] hover:text-white hover:border-white/20 transition-colors text-xs font-mono"
+                    >
+                      <ExternalLink size={12} />
+                      Ver sitio
+                    </a>
+                  )}
                 </div>
 
                 <div className="space-y-5 flex-1">
