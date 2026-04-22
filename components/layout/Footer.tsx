@@ -26,7 +26,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-7 h-7 rounded-md bg-[#ff3b5c] flex items-center justify-center">
+              <span className="w-7 h-7 rounded-md bg-[#00c896] flex items-center justify-center">
                 <span className="font-mono text-xs font-bold text-white leading-none">M</span>
               </span>
               <span className="font-heading font-semibold text-sm tracking-tight text-white">

@@ -14,7 +14,7 @@ const config: Config = {
       },
       colors: {
         bg: { DEFAULT: "#06060e", surface: "#0c0c18", "surface-2": "#111122" },
-        accent: { DEFAULT: "#ff3b5c", glow: "rgba(255,59,92,0.25)" },
+        accent: { DEFAULT: "#00c896", glow: "rgba(0,200,150,0.25)" },
         cyan: "#00d4ff",
         purple: "#a78bfa",
         green: "#34d399",

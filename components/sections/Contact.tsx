@@ -50,11 +50,11 @@ export function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left */}
             <div>
-              <motion.p variants={fadeUp} className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">
+              <motion.p variants={fadeUp} className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">
                 Contacto
               </motion.p>
               <motion.h2 variants={fadeUp} className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white mb-6">
-                Escribinos<span className="text-[#ff3b5c]">.</span>
+                Escribinos<span className="text-[#00c896]">.</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-[#8888a4] text-lg leading-relaxed mb-10">
                 Contanos qué necesitás y te respondemos en menos de 24 horas con ideas concretas.
@@ -67,7 +67,7 @@ export function Contact() {
                   { Icon: Clock, label: 'Horario', value: CONTACT.hours, href: null },
                 ].map(({ Icon, label, value, href }) => (
                   <motion.div key={label} variants={fadeUp} className="flex items-start gap-4">
-                    <div className="w-9 h-9 rounded-lg bg-[#ff3b5c]/10 flex items-center justify-center text-[#ff3b5c] flex-none mt-0.5">
+                    <div className="w-9 h-9 rounded-lg bg-[#00c896]/10 flex items-center justify-center text-[#00c896] flex-none mt-0.5">
                       <Icon size={16} />
                     </div>
                     <div>
@@ -104,9 +104,9 @@ export function Contact() {
                     <input
                       {...register('name')}
                       placeholder="Tu nombre"
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#00c896]/40 focus:border-[#00c896]/50 transition-colors"
                     />
-                    {errors.name && <p className="text-[#ff3b5c] text-xs mt-1">{errors.name.message}</p>}
+                    {errors.name && <p className="text-[#00c896] text-xs mt-1">{errors.name.message}</p>}
                   </div>
 
                   {/* Email */}
@@ -116,9 +116,9 @@ export function Contact() {
                       {...register('email')}
                       type="email"
                       placeholder="tu@email.com"
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#00c896]/40 focus:border-[#00c896]/50 transition-colors"
                     />
-                    {errors.email && <p className="text-[#ff3b5c] text-xs mt-1">{errors.email.message}</p>}
+                    {errors.email && <p className="text-[#00c896] text-xs mt-1">{errors.email.message}</p>}
                   </div>
 
                   {/* Service */}
@@ -128,7 +128,7 @@ export function Contact() {
                       <select
                         {...register('service')}
                         defaultValue=""
-                        className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors appearance-none cursor-pointer"
+                        className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00c896]/40 focus:border-[#00c896]/50 transition-colors appearance-none cursor-pointer"
                       >
                         <option value="" disabled className="text-[#55556a]">¿Qué necesitás?</option>
                         {SERVICES_OPTIONS.map((s) => (
@@ -141,7 +141,7 @@ export function Contact() {
                         </svg>
                       </div>
                     </div>
-                    {errors.service && <p className="text-[#ff3b5c] text-xs mt-1">{errors.service.message}</p>}
+                    {errors.service && <p className="text-[#00c896] text-xs mt-1">{errors.service.message}</p>}
                   </div>
 
                   {/* Message */}
@@ -151,15 +151,15 @@ export function Contact() {
                       {...register('message')}
                       rows={4}
                       placeholder="Contanos tu idea o proyecto..."
-                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#ff3b5c]/40 focus:border-[#ff3b5c]/50 transition-colors resize-none"
+                      className="w-full bg-[#0c0c18] border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-[#55556a] focus:outline-none focus:ring-2 focus:ring-[#00c896]/40 focus:border-[#00c896]/50 transition-colors resize-none"
                     />
-                    {errors.message && <p className="text-[#ff3b5c] text-xs mt-1">{errors.message.message}</p>}
+                    {errors.message && <p className="text-[#00c896] text-xs mt-1">{errors.message.message}</p>}
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <>

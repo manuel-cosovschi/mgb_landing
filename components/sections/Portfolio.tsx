@@ -16,9 +16,9 @@ export function Portfolio() {
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={viewport}>
           {/* Header */}
           <motion.div variants={fadeUp} className="mb-12">
-            <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Portfolio</p>
+            <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">Portfolio</p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white">
-              Proyectos reales<span className="text-[#ff3b5c]">.</span>
+              Proyectos reales<span className="text-[#00c896]">.</span>
             </h2>
           </motion.div>
 
@@ -30,7 +30,7 @@ export function Portfolio() {
                 onClick={() => setActive(i)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
                   active === i
-                    ? 'bg-[#ff3b5c] text-white shadow-[0_0_16px_#ff3b5c40]'
+                    ? 'bg-[#00c896] text-white shadow-[0_0_16px_#00c89640]'
                     : 'border border-white/10 text-[#8888a4] hover:border-white/20 hover:text-white'
                 }`}
               >

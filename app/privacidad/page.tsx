@@ -12,7 +12,7 @@ export default function PrivacidadPage() {
       <Navbar />
       <main className="pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-6 md:px-10">
-          <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Legal</p>
+          <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">Legal</p>
           <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-4">
             Política de Privacidad
           </h1>
@@ -71,7 +71,7 @@ export default function PrivacidadPage() {
               <p className="text-[#8888a4] leading-relaxed">
                 Usted tiene derecho a acceder, rectificar o eliminar los datos personales que nos haya proporcionado.
                 Para ejercer cualquiera de estos derechos, puede contactarnos en{' '}
-                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#ff3b5c] hover:underline">
+                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#00c896] hover:underline">
                   mgbsoftwarefactory@gmail.com
                 </a>.
               </p>
@@ -97,7 +97,7 @@ export default function PrivacidadPage() {
               <h2 className="font-heading font-semibold text-xl text-white mb-3">9. Contacto</h2>
               <p className="text-[#8888a4] leading-relaxed">
                 Si tiene preguntas sobre esta política, puede contactarnos en{' '}
-                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#ff3b5c] hover:underline">
+                <a href="mailto:mgbsoftwarefactory@gmail.com" className="text-[#00c896] hover:underline">
                   mgbsoftwarefactory@gmail.com
                 </a>.
               </p>

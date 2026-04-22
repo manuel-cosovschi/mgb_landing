@@ -10,7 +10,7 @@ export function CTA() {
     <section className="py-28 md:py-36 relative overflow-hidden">
       {/* Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#ff3b5c]/8 blur-[120px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#00c896]/8 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
@@ -21,7 +21,7 @@ export function CTA() {
           viewport={viewport}
           className="max-w-4xl mx-auto text-center"
         >
-          <motion.p variants={fadeUp} className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-6">
+          <motion.p variants={fadeUp} className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-6">
             ¿Listo para empezar?
           </motion.p>
 
@@ -32,7 +32,7 @@ export function CTA() {
           >
             Hablemos de tu
             <br />
-            <span className="text-[#ff3b5c]">próximo proyecto</span>.
+            <span className="text-[#00c896]">próximo proyecto</span>.
           </motion.h2>
 
           <motion.p variants={fadeUp} className="text-[#8888a4] text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
@@ -45,7 +45,7 @@ export function CTA() {
               href={CONTACT.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors shadow-2xl shadow-[#ff3b5c]/30"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors shadow-2xl shadow-[#00c896]/30"
             >
               Agendar llamada gratuita
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

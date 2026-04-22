@@ -15,11 +15,11 @@ export function FAQ() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left */}
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <motion.p variants={fadeUp} className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">
+              <motion.p variants={fadeUp} className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">
                 FAQ
               </motion.p>
               <motion.h2 variants={fadeUp} className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white mb-6">
-                Preguntas<br />frecuentes<span className="text-[#ff3b5c]">.</span>
+                Preguntas<br />frecuentes<span className="text-[#00c896]">.</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="text-[#8888a4] text-lg leading-relaxed">
                 Si tu pregunta no está acá, escribinos y te respondemos en menos de 24 horas.
@@ -35,7 +35,7 @@ export function FAQ() {
                     key={item.id}
                     variants={fadeUp}
                     className={`rounded-xl border transition-colors duration-200 ${
-                      isOpen ? 'border-[#ff3b5c]/30 bg-[#ff3b5c]/8' : 'border-white/6 bg-[#06060e]'
+                      isOpen ? 'border-[#00c896]/30 bg-[#00c896]/8' : 'border-white/6 bg-[#06060e]'
                     }`}
                   >
                     <button
@@ -46,7 +46,7 @@ export function FAQ() {
                       <motion.div
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.2 }}
-                        className="flex-none text-[#ff3b5c]"
+                        className="flex-none text-[#00c896]"
                       >
                         <Plus size={18} />
                       </motion.div>

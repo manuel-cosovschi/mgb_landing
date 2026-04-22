@@ -11,9 +11,9 @@ export function Team() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={viewport}>
           <motion.div variants={fadeUp} className="mb-16 md:mb-20 max-w-xl">
-            <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">El equipo</p>
+            <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">El equipo</p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white">
-              Las personas detrás<span className="text-[#ff3b5c]">.</span>
+              Las personas detrás<span className="text-[#00c896]">.</span>
             </h2>
             <p className="text-[#8888a4] text-lg leading-relaxed mt-4">
               Tres ingenieros que se involucran personalmente en cada proyecto.
