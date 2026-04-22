@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger, viewport } from '@/lib/animations';
 import { CONTACT } from '@/lib/constants';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
+import { WebGLShader } from '@/components/ui/web-gl-shader';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const STATS = [
   { value: 10, suffix: '+', label: 'Proyectos entregados' },
@@ -13,10 +15,13 @@ const STATS = [
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden">
-      {/* Background glow */}
+      {/* WebGL shader background clipped to hero */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#ff3b5c]/10 blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-[#a78bfa]/8 blur-[100px]" />
+        <WebGLShader className="absolute top-0 left-0 w-full h-full block" />
+        {/* Dark overlay to keep brand's dark feel while letting shader show subtly */}
+        <div className="absolute inset-0 bg-[#06060e]/82" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-[#00c896]/8 blur-[120px]" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-[#a78bfa]/6 blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 relative z-10">
@@ -28,7 +33,7 @@ export function Hero() {
         >
           {/* Badge */}
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff3b5c] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00c896] animate-pulse" />
             <span className="text-xs font-mono text-[#8888a4] tracking-widest uppercase">Software factory · Mar del Plata, Argentina</span>
           </motion.div>
 
@@ -40,7 +45,7 @@ export function Hero() {
           >
             Construimos
             <br />
-            <span className="text-[#ff3b5c]">software</span> que
+            <span className="text-[#00c896]">software</span> que
             <br />
             hace crecer
             <br />
@@ -63,12 +68,16 @@ export function Hero() {
               href={CONTACT.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#ff3b5c] text-white font-semibold text-base hover:bg-[#e8304f] transition-colors shadow-lg shadow-[#ff3b5c]/20"
             >
-              Agendar llamada gratuita
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <LiquidButton
+                size="xl"
+                className="text-white border border-[#00c896]/50 bg-[#00c896]/15 hover:bg-[#00c896]/25 rounded-full font-semibold shadow-lg shadow-[#00c896]/20 w-full sm:w-auto"
+              >
+                Agendar llamada gratuita
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </LiquidButton>
             </a>
             <a
               href="#portfolio"

@@ -14,9 +14,9 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={viewport}>
           <motion.div variants={fadeUp} className="mb-16 md:mb-20 max-w-xl">
-            <p className="text-xs font-mono text-[#ff3b5c] tracking-widest uppercase mb-4">Servicios</p>
+            <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">Servicios</p>
             <h2 className="font-heading font-bold text-4xl md:text-5xl leading-tight text-white mb-4">
-              Lo que hacemos<span className="text-[#ff3b5c]">.</span>
+              Lo que hacemos<span className="text-[#00c896]">.</span>
             </h2>
             <p className="text-[#8888a4] text-lg leading-relaxed">
               Desde una landing page hasta sistemas complejos. Siempre con código limpio y resultados reales.
@@ -44,7 +44,7 @@ export function Services() {
                   >
                     <Icon size={20} />
                   </div>
-                  <h3 className="font-heading font-semibold text-lg text-white mb-3 group-hover:text-[#ff3b5c] transition-colors">
+                  <h3 className="font-heading font-semibold text-lg text-white mb-3 group-hover:text-[#00c896] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-[#8888a4] text-sm leading-relaxed mb-4">
@@ -57,7 +57,7 @@ export function Services() {
                       </span>
                     ))}
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[#ff3b5c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-[#00c896] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </motion.div>
               );
             })}

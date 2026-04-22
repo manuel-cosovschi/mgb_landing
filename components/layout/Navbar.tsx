@@ -40,7 +40,7 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group" onClick={handleNavClick}>
-            <span className="w-7 h-7 rounded-md bg-[#ff3b5c] flex items-center justify-center">
+            <span className="w-7 h-7 rounded-md bg-[#00c896] flex items-center justify-center">
               <span className="font-mono text-xs font-bold text-white leading-none">M</span>
             </span>
             <span className="font-heading font-semibold text-sm tracking-tight text-white">
@@ -54,7 +54,7 @@ export function Navbar() {
               <a
                 key={href}
                 href={href}
-                className="text-sm text-[#8888a4] hover:text-white transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#ff3b5c] after:transition-all hover:after:w-full"
+                className="text-sm text-[#8888a4] hover:text-white transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#00c896] after:transition-all hover:after:w-full"
               >
                 {label}
               </a>
@@ -66,7 +66,7 @@ export function Navbar() {
             href={CONTACT.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ff3b5c] text-[#ff3b5c] text-sm font-medium hover:bg-[#ff3b5c] hover:text-white hover:shadow-[0_0_20px_#ff3b5c30] transition-all duration-200"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00c896] text-[#00c896] text-sm font-medium hover:bg-[#00c896] hover:text-white hover:shadow-[0_0_20px_#00c89630] transition-all duration-200"
           >
             Hablemos
           </a>
@@ -112,7 +112,7 @@ export function Navbar() {
                   initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.35 }}
-                  className="text-3xl font-heading font-semibold text-white hover:text-[#ff3b5c] transition-colors"
+                  className="text-3xl font-heading font-semibold text-white hover:text-[#00c896] transition-colors"
                 >
                   {label}
                 </motion.a>
@@ -123,7 +123,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleNavClick}
-              className="w-full py-4 rounded-2xl bg-[#ff3b5c] text-white font-semibold text-center text-lg"
+              className="w-full py-4 rounded-2xl bg-[#00c896] text-white font-semibold text-center text-lg"
             >
               Agendar llamada
             </a>

@@ -21,7 +21,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SERVICES = [
-  { id: "web", icon: "Monitor", title: "Aplicaciones Web", description: "Desde dashboards internos hasta plataformas SaaS completas. Diseño, desarrollo y deploy llave en mano.", tags: ["Next.js", "React", "Node.js", "PostgreSQL"], color: "#ff3b5c" },
+  { id: "web", icon: "Monitor", title: "Aplicaciones Web", description: "Desde dashboards internos hasta plataformas SaaS completas. Diseño, desarrollo y deploy llave en mano.", tags: ["Next.js", "React", "Node.js", "PostgreSQL"], color: "#00c896" },
   { id: "whatsapp", icon: "MessageCircle", title: "Bots de WhatsApp con IA", description: "Atendé clientes 24/7 con bots que entienden texto y audio. Integración directa con tu negocio.", tags: ["OpenAI", "n8n", "Whisper", "WhatsApp API"], color: "#34d399" },
   { id: "automation", icon: "Zap", title: "Automatizaciones", description: "Eliminá tareas repetitivas conectando tus herramientas. Ahorrá horas de trabajo manual por semana.", tags: ["n8n", "APIs", "Webhooks", "Integración"], color: "#a78bfa" },
   { id: "mobile", icon: "Smartphone", title: "Apps Mobile", description: "Aplicaciones nativas para iOS y Android. Experiencias fluidas que tus usuarios van a amar.", tags: ["Swift", "React Native", "iOS", "Android"], color: "#00d4ff" },
@@ -103,7 +103,7 @@ export const PORTFOLIO = [
     name: "Pitch Interactivo",
     client: "Proyecto interno",
     category: "Desarrollo Web",
-    color: "#ff3b5c",
+    color: "#00c896",
     problem: "Necesitábamos presentar proyectos de forma memorable e impactante, más allá de un PDF.",
     solution: "Presentación web interactiva en código puro, optimizada para iPad con navegación táctil y animaciones fluidas.",
     metrics: [
@@ -136,7 +136,7 @@ interface TeamMember {
 }
 
 export const TEAM: TeamMember[] = [
-  { id: "manuel", name: "Manuel Cosovschi", role: "CEO & Fullstack Developer", bio: "Conecto la necesidad del cliente con la solución técnica. Especializado en desarrollo fullstack, automatizaciones e IA aplicada a productos reales.", skills: ["Node.js", "Python", "Next.js", "n8n", "OpenAI", "Swift"], initials: "MC", photo: "/manuel.jpeg", linkedin: "https://www.linkedin.com/in/manuel-cosovschi-4b777923b", github: "https://github.com/manuel-cosovschi", color: "#ff3b5c" },
+  { id: "manuel", name: "Manuel Cosovschi", role: "CEO & Fullstack Developer", bio: "Conecto la necesidad del cliente con la solución técnica. Especializado en desarrollo fullstack, automatizaciones e IA aplicada a productos reales.", skills: ["Node.js", "Python", "Next.js", "n8n", "OpenAI", "Swift"], initials: "MC", photo: "/manuel.jpeg", linkedin: "https://www.linkedin.com/in/manuel-cosovschi-4b777923b", github: "https://github.com/manuel-cosovschi", color: "#00c896" },
   { id: "gabriel", name: "Gabriel García Vázquez", role: "CTO & Frontend Lead", bio: "Transformo ideas en interfaces que los usuarios disfrutan. Especializado en arquitectura frontend y desarrollo fullstack orientado a resultados.", skills: ["TypeScript", "Angular", "Node.js", "Java", "C++", "MySQL"], initials: "GG", photo: "/gabriel.jpeg", linkedin: "https://www.linkedin.com/in/gabriel-garcia-vazquez-2005b2260", github: "https://github.com/gabrielgarciavazquez57", color: "#00d4ff" },
   { id: "bruno", name: "Bruno Nicolás Romano", role: "COO & Backend Lead", bio: "Le doy estructura y escalabilidad a cada proyecto. Me enfoco en bases sólidas de código y en asegurar la calidad de cada entrega.", skills: ["Java", "Python", "PostgreSQL", "Docker", "AWS", "CI/CD"], initials: "BR", photo: "/bruno.png", linkedin: "https://www.linkedin.com/in/brunoromano22", github: "https://github.com/romanobrunonicolas-netizen", color: "#a78bfa" },
 ];
