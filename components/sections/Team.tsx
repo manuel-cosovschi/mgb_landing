@@ -48,7 +48,7 @@ export function Team() {
                 {/* Info */}
                 <div className="p-6">
                   <h3 className="font-heading font-bold text-xl text-white mb-0.5">{member.name}</h3>
-                  <p className="text-sm mb-4" style={{ color: member.color }}>{member.role}</p>
+                  <p className="text-sm mb-4" style={{ color: member.color }}>{member.role.split(' & ')[1] ?? member.role}</p>
                   <p className="text-[#8888a4] text-sm leading-relaxed mb-5">{member.bio}</p>
 
                   {/* Skills */}
