@@ -36,23 +36,13 @@ export function Team() {
                     src={member.photo}
                     alt={`Foto de ${member.name}, ${member.role}`}
                     fill
-                    className={`object-cover transition-transform duration-700 ${
-                      member.id === 'manuel'
-                        ? 'object-center scale-[1.55] group-hover:scale-[1.6]'
-                        : 'object-[center_10%] group-hover:scale-105'
-                    }`}
+                    className="object-cover transition-transform duration-700 object-[center_10%] group-hover:scale-105"
                     unoptimized
                   />
                   {/* Subtle bottom fade only — does NOT cover the face */}
                   <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0c0c18] to-transparent" />
 
-                  {/* Color accent tag */}
-                  <div
-                    className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono font-semibold"
-                    style={{ backgroundColor: `${member.color}20`, color: member.color, border: `1px solid ${member.color}40` }}
-                  >
-                    {member.role.split(' & ')[0]}
-                  </div>
+
                 </div>
 
                 {/* Info */}
