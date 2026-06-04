@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { CONTACT } from '@/lib/constants';
 import { GitHubIcon, InstagramIcon } from '@/components/ui/SocialIcons';
 
@@ -26,9 +27,13 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-7 h-7 rounded-md bg-[#00c896] flex items-center justify-center">
-                <span className="font-mono text-xs font-bold text-white leading-none">M</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="MGB Software Factory"
+                width={36}
+                height={36}
+                className="rounded-full"
+              />
               <span className="font-heading font-semibold text-sm tracking-tight text-white">
                 MGB <span className="text-[#8888a4]">Software</span>
               </span>

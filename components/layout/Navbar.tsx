@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CONTACT } from '@/lib/constants';
 
@@ -40,9 +41,14 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group" onClick={handleNavClick}>
-            <span className="w-7 h-7 rounded-md bg-[#00c896] flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-white leading-none">M</span>
-            </span>
+            <Image
+              src="/logo.png"
+              alt="MGB Software Factory"
+              width={36}
+              height={36}
+              className="rounded-full"
+              priority
+            />
             <span className="font-heading font-semibold text-sm tracking-tight text-white">
               MGB <span className="text-[#8888a4]">Software</span>
             </span>
