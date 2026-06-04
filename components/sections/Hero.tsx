@@ -65,7 +65,7 @@ export function Hero() {
           {/* CTAs */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-20">
             <a
-              href={CONTACT.calendly}
+              href={CONTACT.googleMeet}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -73,7 +73,7 @@ export function Hero() {
                 size="xl"
                 className="text-white border border-[#00c896]/50 bg-[#00c896]/15 hover:bg-[#00c896]/25 rounded-full font-semibold shadow-lg shadow-[#00c896]/20 w-full sm:w-auto"
               >
-                Agendar llamada gratuita
+                Agendar reunión gratuita
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

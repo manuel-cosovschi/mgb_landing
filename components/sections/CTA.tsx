@@ -36,18 +36,18 @@ export function CTA() {
           </motion.h2>
 
           <motion.p variants={fadeUp} className="text-[#8888a4] text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-            Primera llamada gratuita. Sin compromiso. Te damos una propuesta con alcance y precio
+            Primera reunión gratuita por Google Meet. Sin compromiso. Te damos una propuesta con alcance y precio
             en 3–5 días hábiles.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={CONTACT.calendly}
+              href={CONTACT.googleMeet}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors shadow-2xl shadow-[#00c896]/30"
             >
-              Agendar llamada gratuita
+              Agendar reunión gratuita
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
