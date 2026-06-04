@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger, viewport } from '@/lib/animations';
 import { TEAM } from '@/lib/constants';
@@ -30,19 +29,14 @@ export function Team() {
                 variants={fadeUp}
                 className="group rounded-2xl border border-white/6 bg-[#0c0c18] overflow-hidden hover:border-white/12 transition-colors"
               >
-                {/* Photo area */}
-                <div className="relative h-80 overflow-hidden bg-[#111122]">
-                  <Image
-                    src={member.photo}
-                    alt={`Foto de ${member.name}, ${member.role}`}
-                    fill
-                    className="object-cover transition-transform duration-700 object-[center_10%] group-hover:scale-105"
-                    unoptimized
-                  />
-                  {/* Subtle bottom fade only — does NOT cover the face */}
-                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0c0c18] to-transparent" />
-
-
+                {/* Initials avatar */}
+                <div className="flex items-center justify-center h-40 bg-[#111122]">
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-heading font-bold text-white"
+                    style={{ backgroundColor: `${member.color}20`, border: `2px solid ${member.color}` }}
+                  >
+                    {member.initials}
+                  </div>
                 </div>
 
                 {/* Info */}

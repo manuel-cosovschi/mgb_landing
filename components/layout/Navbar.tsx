@@ -63,7 +63,7 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <a
-            href={CONTACT.calendly}
+            href={CONTACT.googleMeet}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00c896] text-[#00c896] text-sm font-medium hover:bg-[#00c896] hover:text-white hover:shadow-[0_0_20px_#00c89630] transition-all duration-200"
@@ -119,13 +119,13 @@ export function Navbar() {
               ))}
             </nav>
             <a
-              href={CONTACT.calendly}
+              href={CONTACT.googleMeet}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleNavClick}
               className="w-full py-4 rounded-2xl bg-[#00c896] text-white font-semibold text-center text-lg"
             >
-              Agendar llamada
+              Agendar reunión
             </a>
           </motion.div>
         )}
