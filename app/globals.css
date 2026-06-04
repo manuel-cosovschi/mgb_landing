@@ -2,9 +2,9 @@
 
 /* ── Design tokens (non-layered: always available as CSS vars) ── */
 :root {
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --f-heading: var(--font-heading), system-ui, sans-serif;
+  --f-body: var(--font-body), system-ui, sans-serif;
+  --f-mono: var(--font-mono), 'Courier New', monospace;
   --c-bg: #06060e;
   --c-surface: #0c0c18;
   --c-surface-2: #111122;
@@ -38,7 +38,7 @@
   }
 
   body {
-    font-family: var(--font-body);
+    font-family: var(--f-body);
     background: var(--c-bg);
     color: var(--c-text);
     line-height: 1.7;
@@ -48,7 +48,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: var(--f-heading);
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.025em;
@@ -56,7 +56,7 @@
   }
 
   code, pre, kbd {
-    font-family: var(--font-mono);
+    font-family: var(--f-mono);
   }
 
   a {

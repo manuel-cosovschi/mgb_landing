@@ -1,10 +1,15 @@
 'use client';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger, viewport } from '@/lib/animations';
 import { CONTACT } from '@/lib/constants';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
-import { WebGLShader } from '@/components/ui/web-gl-shader';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
+
+const WebGLShader = dynamic(
+  () => import('@/components/ui/web-gl-shader').then(m => ({ default: m.WebGLShader })),
+  { ssr: false }
+);
 
 const STATS = [
   { value: 10, suffix: '+', label: 'Proyectos entregados' },
