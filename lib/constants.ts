@@ -2,7 +2,7 @@ export const CONTACT = {
   email: "mgbsoftwarefactory@gmail.com",
   whatsapp: "+542235383082",
   whatsappMessage: "Hola MGB! Estoy interesado en sus servicios de desarrollo. ¿Podemos hablar?",
-  googleMeet: "https://meet.google.com/new",
+  googleMeet: "https://calendar.app.google/yQNdLhThgnrEEHRN9",
   formspreeId: "xkopknkd",
   linkedin: "",
   github: "https://github.com/mgbsoftwarefactory-web",
