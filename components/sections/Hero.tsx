@@ -1,10 +1,8 @@
 'use client';
+
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { fadeUp, stagger } from '@/lib/animations';
 import { CONTACT } from '@/lib/constants';
-import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const WebGLShader = dynamic(
   () => import('@/components/ui/web-gl-shader').then(m => ({ default: m.WebGLShader })),
@@ -12,15 +10,15 @@ const WebGLShader = dynamic(
 );
 
 const STATS = [
-  { value: 10, suffix: '+', label: 'Proyectos entregados' },
-  { value: 3, suffix: '', label: 'Países con clientes' },
-  { value: 100, suffix: '%', label: 'Satisfacción garantizada' },
+  { value: '10+', label: 'Proyectos entregados' },
+  { value: '3', label: 'Países con clientes' },
+  { value: '100%', label: 'Satisfacción garantizada' },
 ];
 
 export function Hero() {
   return (
     <section className="relative flex flex-col justify-center pt-20 md:pt-16 min-h-[calc(100svh-0px)] overflow-hidden">
-      {/* Background — WebGL only on desktop, static glow on mobile */}
+      {/* Background — WebGL only on desktop */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="hidden md:block absolute inset-0">
           <WebGLShader className="absolute top-0 left-0 w-full h-full block" />
@@ -31,21 +29,15 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-24 relative z-10">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="max-w-5xl"
-        >
+        <div className="max-w-5xl animate-[fadeIn_0.4s_ease-out]">
           {/* Badge */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 md:mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 md:mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00c896] animate-pulse" />
             <span className="text-xs font-mono text-[#8888a4] tracking-widest uppercase">Software factory · Mar del Plata, Argentina</span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            variants={fadeUp}
+          <h1
             className="font-heading font-bold leading-[1.08] tracking-tight mb-4 md:mb-6 text-[clamp(2.4rem,7vw,7rem)]"
           >
             Construimos
@@ -55,20 +47,17 @@ export function Hero() {
             hace crecer
             <br />
             tu negocio.
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
-            variants={fadeUp}
-            className="text-[#8888a4] text-base md:text-xl max-w-2xl mb-8 md:mb-10 leading-relaxed"
-          >
+          <p className="text-[#8888a4] text-base md:text-xl max-w-2xl mb-8 md:mb-10 leading-relaxed">
             Somos un equipo de tres ingenieros apasionados. Creamos páginas web,
             bots de WhatsApp, automatizaciones y apps móviles de calidad para
             empresas y emprendedores en Argentina y el mundo.
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-12 md:mb-20">
+          <div className="flex flex-col sm:flex-row gap-3 mb-12 md:mb-20">
             <Link
               href="/pagina-web-para-tu-negocio"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors shadow-lg shadow-[#00c896]/20"
@@ -92,39 +81,25 @@ export function Hero() {
             >
               Ver proyectos
             </a>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            variants={fadeUp}
-            className="grid grid-cols-3 gap-4 md:gap-8 pt-8 border-t border-white/6"
-          >
-            {STATS.map(({ value, suffix, label }) => (
+          <div className="grid grid-cols-3 gap-4 md:gap-8 pt-8 border-t border-white/6">
+            {STATS.map(({ value, label }) => (
               <div key={label}>
-                <p className="font-heading font-bold text-2xl md:text-4xl text-white mb-1">
-                  <AnimatedCounter target={value} suffix={suffix} />
-                </p>
+                <p className="font-heading font-bold text-2xl md:text-4xl text-white mb-1">{value}</p>
                 <p className="text-[#8888a4] text-xs md:text-sm leading-snug">{label}</p>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden md:flex"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-      >
+      {/* Scroll indicator — desktop only, CSS animation */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 animate-[fadeIn_0.6s_ease-out_1.2s_both]">
         <span className="text-[10px] font-mono text-[#55556a] tracking-widest uppercase">Scroll</span>
-        <motion.div
-          className="w-px h-8 bg-gradient-to-b from-[#55556a] to-transparent"
-          animate={{ scaleY: [1, 0.5, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </motion.div>
+        <div className="w-px h-8 bg-gradient-to-b from-[#55556a] to-transparent animate-pulse" />
+      </div>
     </section>
   );
 }
