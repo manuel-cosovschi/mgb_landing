@@ -9,6 +9,7 @@ import { TechStack } from '@/components/sections/TechStack';
 import { FAQ } from '@/components/sections/FAQ';
 import { CTA } from '@/components/sections/CTA';
 import { Contact } from '@/components/sections/Contact';
+import { WebExpressPromo } from '@/components/sections/WebExpressPromo';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingButtons } from '@/components/ui/FloatingButtons';
 
@@ -26,6 +27,7 @@ export default function Home() {
         <TechStack />
         <FAQ />
         <CTA />
+        <WebExpressPromo />
         <Contact />
       </main>
       <Footer />
