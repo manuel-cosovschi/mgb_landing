@@ -60,7 +60,7 @@ export const WEB_EXPRESS_CONFIG = {
   ],
 
   payment: {
-    mercadoPagoUrl: "", // Link de pago manual de MP — completar cuando esté
+    mercadoPagoUrl: "https://link.mercadopago.com.ar/mgbsoftwarefactory",
     transferAlias: "mgb.pay",
     transferHolder: "MGB Software Factory",
   },
