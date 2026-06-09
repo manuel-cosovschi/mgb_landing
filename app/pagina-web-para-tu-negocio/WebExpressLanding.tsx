@@ -11,9 +11,10 @@ import {
   Paintbrush, Smartphone, MessageCircle, Code2, Check, ChevronDown,
   ExternalLink, ArrowRight, Globe, Users, Clock, Zap,
 } from 'lucide-react';
-import { WEB_EXPRESS_CONFIG } from '@/lib/web-express-config';
+import { WEB_EXPRESS_CONFIG, type TierExtra } from '@/lib/web-express-config';
 import { CONTACT, PORTFOLIO } from '@/lib/constants';
 import { trackContact, trackLead, trackInitiateCheckout, trackViewContent, getStoredUTMs } from '@/lib/meta-pixel';
+import { useDolarBlue, formatARS } from '@/lib/use-dolar-blue';
 
 // ─── helpers ───────────────────────────────────────────────────────────────
 
@@ -24,8 +25,8 @@ function whatsappUrl(msg: string) {
 const WA_URL = whatsappUrl(WEB_EXPRESS_CONFIG.whatsappMessage);
 
 function ctaPrimaryHref() {
-  if (WEB_EXPRESS_CONFIG.showDirectPayment && WEB_EXPRESS_CONFIG.paymentUrl) {
-    return WEB_EXPRESS_CONFIG.paymentUrl;
+  if (WEB_EXPRESS_CONFIG.payment.mercadoPagoUrl) {
+    return WEB_EXPRESS_CONFIG.payment.mercadoPagoUrl;
   }
   return WA_URL;
 }
@@ -211,6 +212,251 @@ function FAQAccordion({ items }: { items: typeof FAQS }) {
   );
 }
 
+// ─── Pricing Section ───────────────────────────────────────────────────────
+
+function PricingSection({ onRequestForm }: { onRequestForm: () => void }) {
+  const { tiers, payment } = WEB_EXPRESS_CONFIG;
+  const dolar = useDolarBlue();
+  const [selectedTier, setSelectedTier] = useState(0);
+  const [selectedExtras, setSelectedExtras] = useState<number[]>([]);
+  const [showTransfer, setShowTransfer] = useState(false);
+
+  const tier = tiers[selectedTier];
+  const extras = ('extras' in tier ? (tier as { extras: TierExtra[] }).extras : []) as TierExtra[];
+  const extrasCost = selectedExtras.reduce((sum, i) => sum + (extras[i]?.priceUSD ?? 0), 0);
+  const totalUSD = tier.priceUSD + extrasCost;
+  const totalARS = dolar.promedio ? totalUSD * dolar.promedio : 0;
+
+  const hasMPLink = !!payment.mercadoPagoUrl;
+
+  function handleTierChange(idx: number) {
+    setSelectedTier(idx);
+    setSelectedExtras([]);
+    setShowTransfer(false);
+  }
+
+  function toggleExtra(idx: number) {
+    setSelectedExtras(prev =>
+      prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
+    );
+  }
+
+  return (
+    <section className="py-24 md:py-32 px-5 md:px-10 bg-[#0c0c18]" id="comprar">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-4">WEB EXPRESS MGB</p>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-3">
+            Elegí el plan ideal para tu negocio.
+          </h2>
+          <p className="text-[#8888a4] text-base max-w-xl mx-auto">
+            Precio en dólares, pagás en pesos al tipo de cambio del día.
+          </p>
+        </div>
+
+        {/* Tier selector */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          {tiers.map((t, i) => (
+            <button
+              key={t.id}
+              onClick={() => handleTierChange(i)}
+              className={`text-left p-5 rounded-xl border transition-all cursor-pointer ${
+                selectedTier === i
+                  ? 'border-[#00c896] bg-[#00c896]/8 shadow-lg shadow-[#00c896]/10'
+                  : 'border-white/8 bg-[#06060e] hover:border-white/15'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-heading font-bold text-lg text-white">{t.name}</h3>
+                <span className="font-heading font-bold text-lg text-[#00c896]">
+                  USD {t.priceUSD}
+                </span>
+              </div>
+              <p className="text-[#8888a4] text-sm leading-relaxed">{t.description}</p>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected tier detail */}
+        <div className="rounded-2xl border border-[#00c896]/20 bg-[#06060e] overflow-hidden shadow-2xl shadow-[#00c896]/10">
+          {/* Price header */}
+          <div className="p-6 md:p-8 border-b border-white/6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 className="font-heading font-bold text-xl text-white mb-1">{tier.name}</h3>
+                <p className="text-[#8888a4] text-sm">{tier.description}</p>
+              </div>
+              <div className="text-left md:text-right">
+                <div className="font-heading font-bold text-3xl md:text-4xl text-white">
+                  USD {totalUSD}
+                </div>
+                {dolar.loading ? (
+                  <p className="text-[#55556a] text-sm mt-1 animate-pulse">Calculando en pesos...</p>
+                ) : dolar.error ? (
+                  <p className="text-[#55556a] text-sm mt-1">Consultá el precio en pesos por WhatsApp</p>
+                ) : (
+                  <p className="text-[#8888a4] text-sm mt-1">
+                    ≈ {formatARS(totalARS)} <span className="text-[#55556a]">(dólar blue {formatARS(dolar.promedio)})</span>
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Extras for web-admin tier */}
+            {extras.length > 0 && (
+              <div className="mt-5 pt-5 border-t border-white/6">
+                <p className="text-xs font-mono text-[#55556a] uppercase tracking-widest mb-3">Opciones adicionales</p>
+                <div className="space-y-2">
+                  {extras.map((extra, i) => (
+                    <label
+                      key={i}
+                      className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        selectedExtras.includes(i)
+                          ? 'border-[#00c896]/40 bg-[#00c896]/5'
+                          : 'border-white/8 hover:border-white/15'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedExtras.includes(i)}
+                        onChange={() => toggleExtra(i)}
+                        className="sr-only"
+                      />
+                      <div className={`w-4 h-4 rounded border flex-none flex items-center justify-center transition-colors ${
+                        selectedExtras.includes(i)
+                          ? 'bg-[#00c896] border-[#00c896]'
+                          : 'border-white/20'
+                      }`}>
+                        {selectedExtras.includes(i) && <Check size={10} className="text-white" />}
+                      </div>
+                      <span className="text-white text-sm flex-1">{extra.label}</span>
+                      {extra.priceUSD > 0 && (
+                        <span className="text-[#00c896] text-sm font-medium">+USD {extra.priceUSD}</span>
+                      )}
+                      {extra.priceUSD === 0 && (
+                        <span className="text-[#55556a] text-xs">Incluido</span>
+                      )}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Includes */}
+          <div className="p-6 md:p-8 space-y-2.5">
+            <p className="text-xs font-mono text-[#55556a] uppercase tracking-widest mb-3">Incluye</p>
+            {tier.includes.map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <Check size={14} className="text-[#00c896] flex-none" />
+                <span className="text-[#8888a4] text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="px-6 md:px-8 pb-8 space-y-3">
+            {/* Mercado Pago */}
+            {hasMPLink ? (
+              <a
+                href={payment.mercadoPagoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackInitiateCheckout()}
+                className="block w-full py-4 rounded-full bg-[#00c896] text-white font-semibold text-center hover:bg-[#00b085] transition-colors cursor-pointer"
+              >
+                Pagar con Mercado Pago — USD {totalUSD}
+              </a>
+            ) : (
+              <button
+                onClick={onRequestForm}
+                className="block w-full py-4 rounded-full bg-[#00c896] text-white font-semibold text-center hover:bg-[#00b085] transition-colors cursor-pointer"
+              >
+                Quiero mi página web — USD {totalUSD}
+              </button>
+            )}
+
+            {/* Transferencia */}
+            <button
+              onClick={() => setShowTransfer(!showTransfer)}
+              className="block w-full py-3.5 rounded-full border border-white/12 text-white font-medium text-center hover:bg-white/5 transition-colors text-sm cursor-pointer"
+            >
+              Pagar por transferencia bancaria
+            </button>
+
+            <AnimatePresence>
+              {showTransfer && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden"
+                >
+                  <div className="rounded-xl border border-white/10 bg-[#0c0c18] p-5 space-y-3">
+                    <p className="text-white text-sm font-medium">Datos para transferencia:</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[#8888a4] text-sm">Alias</span>
+                        <span className="text-white text-sm font-mono font-medium">{payment.transferAlias}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[#8888a4] text-sm">Titular</span>
+                        <span className="text-white text-sm">{payment.transferHolder}</span>
+                      </div>
+                      {!dolar.loading && !dolar.error && (
+                        <div className="flex items-center justify-between pt-2 border-t border-white/6">
+                          <span className="text-[#8888a4] text-sm">Monto a transferir</span>
+                          <span className="text-[#00c896] text-sm font-bold">{formatARS(totalARS)}</span>
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-[#55556a] text-xs leading-relaxed">
+                      Después de transferir, envianos el comprobante por WhatsApp junto con tu nombre y negocio.
+                    </p>
+                    <a
+                      href={whatsappUrl(`Hola, acabo de transferir ${formatARS(totalARS)} por el plan ${tier.name} de Web Express MGB. Mi comprobante:`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => { trackContact(); trackInitiateCheckout(); }}
+                      className="block w-full py-3 rounded-full bg-[#25D366] text-white font-semibold text-center hover:bg-[#1fb558] transition-colors text-sm"
+                    >
+                      Enviar comprobante por WhatsApp
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* WhatsApp consulta */}
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackContact()}
+              className="block w-full py-3 text-[#8888a4] font-medium text-center hover:text-white transition-colors text-sm"
+            >
+              ¿Tenés dudas? Consultanos por WhatsApp
+            </a>
+
+            <p className="text-[#55556a] text-xs text-center leading-relaxed">
+              Luego del pago te enviamos un brief simple para conocer tu negocio y reunir el contenido.
+            </p>
+            {WEB_EXPRESS_CONFIG.showUrgentOptions && (
+              <p className="text-[#55556a] text-xs text-center border-t border-white/6 pt-4">
+                ¿La necesitás antes?{' '}
+                <a href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()} className="text-[#00c896] hover:underline">
+                  Consultanos por entregas prioritarias.
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Lead Form ──────────────────────────────────────────────────────────────
 
 const schema = z.object({
@@ -382,8 +628,8 @@ export function WebExpressLanding() {
   }, []);
 
   const hero = HERO_COPY[variant];
-  const primaryCta = ctaPrimaryHref();
-  const isCheckout = WEB_EXPRESS_CONFIG.showDirectPayment && !!WEB_EXPRESS_CONFIG.paymentUrl;
+  const primaryCta = '#comprar';
+  const hasMPLink = !!WEB_EXPRESS_CONFIG.payment.mercadoPagoUrl;
 
   // pixel view content once
   useEffect(() => {
@@ -422,9 +668,9 @@ export function WebExpressLanding() {
           </nav>
           <a
             href={primaryCta}
-            target={isCheckout ? '_self' : '_blank'}
+            target="_self"
             rel="noopener noreferrer"
-            onClick={() => { if (isCheckout) trackInitiateCheckout(); else trackContact(); }}
+            onClick={() => trackInitiateCheckout()}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00c896] text-white text-sm font-semibold hover:bg-[#00b085] transition-colors shadow-lg shadow-[#00c896]/25"
           >
             Quiero mi página web
@@ -449,9 +695,9 @@ export function WebExpressLanding() {
               <div className="flex flex-col sm:flex-row gap-3 mb-5">
                 <a
                   href={primaryCta}
-                  target={isCheckout ? '_self' : '_blank'}
+                  target="_self"
                   rel="noopener noreferrer"
-                  onClick={() => { if (isCheckout) trackInitiateCheckout(); else trackContact(); }}
+                  onClick={() => trackInitiateCheckout()}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors shadow-xl shadow-[#00c896]/25"
                 >
                   Quiero mi página web
@@ -560,71 +806,7 @@ export function WebExpressLanding() {
         </section>
 
         {/* ── PRECIO Y CTA ──────────────────────────────────── */}
-        <section className="py-24 md:py-32 px-5 md:px-10 bg-[#0c0c18]">
-          <div className="max-w-lg mx-auto">
-            <div className="rounded-2xl border border-[#00c896]/20 bg-[#06060e] overflow-hidden shadow-2xl shadow-[#00c896]/10">
-              <div className="p-8 border-b border-white/6">
-                <p className="text-xs font-mono text-[#00c896] tracking-widest uppercase mb-3">WEB EXPRESS MGB</p>
-                <h2 className="font-heading font-bold text-2xl md:text-3xl text-white mb-2">
-                  Tu página web profesional, lista para publicar.
-                </h2>
-                {WEB_EXPRESS_CONFIG.currentPrice && (
-                  <div className="mt-4 flex items-baseline gap-3">
-                    {WEB_EXPRESS_CONFIG.showPreviousPrice && WEB_EXPRESS_CONFIG.previousPrice && (
-                      <span className="text-[#55556a] line-through text-lg">
-                        {WEB_EXPRESS_CONFIG.currency} {WEB_EXPRESS_CONFIG.previousPrice}
-                      </span>
-                    )}
-                    <span className="font-heading font-bold text-4xl text-white">
-                      {WEB_EXPRESS_CONFIG.currency} {WEB_EXPRESS_CONFIG.currentPrice}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <div className="p-8 space-y-3">
-                {['Diseño personalizado', 'Responsive', 'WhatsApp y formulario', 'Deploy incluido', 'Una ronda de ajustes', 'Soporte técnico 30 días'].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <Check size={14} className="text-[#00c896] flex-none" />
-                    <span className="text-[#8888a4] text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="px-8 pb-8 space-y-3">
-                <a
-                  href={isCheckout ? primaryCta : undefined}
-                  onClick={() => {
-                    if (isCheckout) trackInitiateCheckout();
-                    else setShowForm(true);
-                  }}
-                  role={isCheckout ? undefined : 'button'}
-                  className="block w-full py-4 rounded-full bg-[#00c896] text-white font-semibold text-center hover:bg-[#00b085] transition-colors cursor-pointer"
-                >
-                  {isCheckout ? 'Comprar mi página web' : 'Quiero recibir una propuesta'}
-                </a>
-                <a
-                  href={WA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackContact()}
-                  className="block w-full py-3.5 rounded-full border border-white/12 text-white font-medium text-center hover:bg-white/5 transition-colors text-sm"
-                >
-                  Consultar por WhatsApp
-                </a>
-                <p className="text-[#55556a] text-xs text-center leading-relaxed">
-                  Luego de iniciar el pedido, te enviamos un brief simple para conocer tu negocio y reunir el contenido necesario.
-                </p>
-                {WEB_EXPRESS_CONFIG.showUrgentOptions && (
-                  <p className="text-[#55556a] text-xs text-center border-t border-white/6 pt-4">
-                    ¿La necesitás antes?{' '}
-                    <a href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackContact()} className="text-[#00c896] hover:underline">
-                      Consultanos por entregas prioritarias de 24, 12 u 8 horas hábiles.
-                    </a>
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
+        <PricingSection onRequestForm={() => setShowForm(true)} />
 
         {/* ── CÓMO FUNCIONA ─────────────────────────────────── */}
         <section className="py-24 md:py-32 px-5 md:px-10">
@@ -754,9 +936,9 @@ export function WebExpressLanding() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
               <a
                 href={primaryCta}
-                target={isCheckout ? '_self' : '_blank'}
+                target="_self"
                 rel="noopener noreferrer"
-                onClick={() => { if (isCheckout) trackInitiateCheckout(); else trackContact(); }}
+                onClick={() => trackInitiateCheckout()}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#00c896] text-white font-semibold text-base hover:bg-[#00b085] transition-colors shadow-2xl shadow-[#00c896]/30"
               >
                 Quiero mi página web
@@ -828,9 +1010,9 @@ export function WebExpressLanding() {
             <span className="text-sm text-[#8888a4]">Creá la web de tu negocio</span>
             <a
               href={primaryCta}
-              target={isCheckout ? '_self' : '_blank'}
+              target="_self"
               rel="noopener noreferrer"
-              onClick={() => { if (isCheckout) trackInitiateCheckout(); else trackContact(); }}
+              onClick={() => trackInitiateCheckout()}
               className="px-5 py-2.5 rounded-full bg-[#00c896] text-white text-sm font-semibold hover:bg-[#00b085] transition-colors whitespace-nowrap"
             >
               Empezar
