@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: '#equipo', label: 'Equipo' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#faq', label: 'FAQ' },
+  { href: '/pagina-web-para-tu-negocio', label: 'Web Express' },
 ];
 
 export function Navbar() {
