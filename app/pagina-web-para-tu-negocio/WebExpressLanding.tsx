@@ -805,6 +805,20 @@ export function WebExpressLanding() {
           </div>
         </section>
 
+        {/* ── SHOWCASE IMAGE ─────────────────────────────────── */}
+        <section className="py-16 md:py-24 px-5 md:px-10">
+          <div className="max-w-5xl mx-auto">
+            <Image
+              src="/web-express-hero.png"
+              alt="Ejemplos reales de sitios web desarrollados por MGB Software Factory"
+              width={1200}
+              height={675}
+              className="w-full h-auto rounded-2xl border border-white/8 shadow-2xl shadow-black/40"
+              priority={false}
+            />
+          </div>
+        </section>
+
         {/* ── PRECIO Y CTA ──────────────────────────────────── */}
         <PricingSection onRequestForm={() => setShowForm(true)} />
 
